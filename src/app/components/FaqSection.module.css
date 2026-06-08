@@ -1,9 +1,26 @@
 .section {
-  background: var(--white);
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    var(--gray-100) 0%,
+    #f8faff 35%,
+    #fafcff 65%,
+    var(--gray-100) 100%
+  );
   padding: var(--section-padding-y) var(--page-padding-x);
 }
 
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 50% at 50% 40%, rgba(99, 91, 255, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
 .inner {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -19,24 +36,25 @@
   margin-bottom: 40px;
 }
 
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.item {
-  border: 1px solid rgba(10, 37, 64, 0.08);
-  border-radius: var(--radius-md);
-  background: var(--gray-100);
+.panel {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(10, 37, 64, 0.07);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-md);
 }
 
-.itemOpen {
-  border-color: rgba(99, 91, 255, 0.25);
-  box-shadow: var(--shadow-sm);
-  background: var(--white);
+.row {
+  border-bottom: 1px solid rgba(10, 37, 64, 0.08);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowOpen {
+  background: rgba(99, 91, 255, 0.03);
 }
 
 .question {
@@ -45,7 +63,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 20px 24px;
+  padding: 20px 28px;
   background: none;
   border: none;
   font-family: inherit;
@@ -54,6 +72,11 @@
   color: var(--gray-900);
   text-align: left;
   cursor: pointer;
+  transition: color 0.2s;
+}
+
+.question:hover {
+  color: var(--stripe-blue);
 }
 
 .icon {
@@ -69,7 +92,7 @@
   transition: transform 0.25s var(--ease-out);
 }
 
-.itemOpen .icon {
+.rowOpen .icon {
   transform: rotate(45deg);
 }
 
@@ -78,7 +101,7 @@
 }
 
 .answer {
-  padding: 0 24px 20px;
+  padding: 0 28px 20px;
   font-size: var(--text-base);
   line-height: var(--leading-body);
   color: var(--gray-500);
@@ -90,12 +113,12 @@
   }
 
   .question {
-    padding: 16px 18px;
+    padding: 16px 20px;
     font-size: var(--text-base);
   }
 
   .answer {
-    padding: 0 18px 16px;
+    padding: 0 20px 16px;
   }
 }
 

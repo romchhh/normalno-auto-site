@@ -69,14 +69,10 @@
 .iconBox {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--stripe-blue) 0%, var(--stripe-blue-hover) 100%);
-  color: #fff;
+  justify-content: flex-start;
+  color: var(--stripe-blue);
   flex-shrink: 0;
-  box-shadow: var(--shadow-glow);
+  line-height: 0;
 }
 
 .blockContent {

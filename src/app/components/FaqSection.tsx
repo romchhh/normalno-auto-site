@@ -22,14 +22,14 @@ export default function FaqSection() {
           {t('seo.faqHeading')}
         </h2>
 
-        <div className={styles.list}>
+        <div className={styles.panel}>
           {items.map((item, index) => {
             const isOpen = openIndex === index
 
             return (
               <article
                 key={item.question}
-                className={`${styles.item} ${isOpen ? styles.itemOpen : ''}`}
+                className={`${styles.row} ${isOpen ? styles.rowOpen : ''}`}
               >
                 <h3>
                   <button
