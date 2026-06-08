@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from 'next'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Providers from './components/Providers'
 import JsonLd from './components/JsonLd'
 import { siteConfig } from '@/lib/site'
+
+const montserrat = Montserrat({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-montserrat',
+})
 
 export const viewport: Viewport = {
   themeColor: siteConfig.themeColor,
@@ -79,19 +87,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru">
+    <html lang="ru" className={montserrat.variable}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
         <link rel="alternate" type="text/plain" href="/ai.txt" title="AI information" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM information" />
         <JsonLd />
       </head>
-      <body>
+      <body className={montserrat.className}>
         <Providers>{children}</Providers>
       </body>
     </html>

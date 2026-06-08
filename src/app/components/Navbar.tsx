@@ -3,7 +3,9 @@
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { useTranslation } from 'react-i18next'
+import { siteConfig } from '@/lib/site'
 import { useContactModal } from './ContactModalProvider'
+import { TelegramIcon } from './icons/SocialIcons'
 import LangSwitcher from './LangSwitcher'
 import styles from './Navbar.module.css'
 
@@ -43,19 +45,46 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
           <a href="/blog" className={pathname === '/blog' ? styles.activeLink : ''}>{t('nav.blog')}</a>
         </div>
 
-        <div className={styles.right}>
-          <LangSwitcher light={!isDark} />
-          <button type="button" className={styles.cta} onClick={openContactModal}>
-            {t('nav.cta')}
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M2 12 L12 2 M5 2 H12 V9"/>
-            </svg>
+        <div className={styles.actions}>
+          <a
+            href={siteConfig.telegramOperatorUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.telegramBtn}
+            aria-label={t('nav.telegram')}
+          >
+            <TelegramIcon />
+          </a>
+
+          <button
+            type="button"
+            className={styles.contactIconBtn}
+            onClick={openContactModal}
+            aria-label={t('nav.openContact')}
+          >
+            <span className={styles.contactIconArrow} aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M2 12 L12 2 M5 2 H12 V9" />
+              </svg>
+            </span>
+          </button>
+
+          <div className={styles.desktopRight}>
+            <LangSwitcher light={!isDark} />
+            <button type="button" className={styles.cta} onClick={openContactModal}>
+              {t('nav.cta')}
+              <span className={styles.ctaArrow} aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 12 L12 2 M5 2 H12 V9" />
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <button className={styles.hamburger} onClick={() => setMenuOpen(true)} aria-label={t('nav.openMenu')}>
+            <span/><span/><span/>
           </button>
         </div>
-
-        <button className={styles.hamburger} onClick={() => setMenuOpen(true)} aria-label={t('nav.openMenu')}>
-          <span/><span/><span/>
-        </button>
       </nav>
 
       <div className={`${styles.drawer} ${menuOpen ? styles.open : ''}`} role="dialog" aria-modal="true">
@@ -75,6 +104,11 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
           onClick={() => { setMenuOpen(false); openContactModal() }}
         >
           {t('nav.cta')}
+          <span className={styles.ctaArrow} aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M2 12 L12 2 M5 2 H12 V9" />
+            </svg>
+          </span>
         </button>
         <LangSwitcher variant="drawer" />
       </div>

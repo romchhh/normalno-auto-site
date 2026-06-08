@@ -47,6 +47,25 @@ Marketplaces, SaaS, e-commerce, online/offline business, subscriptions, online c
 - Blog: https://cardproc.com/blog
 - Privacy policy: https://cardproc.com/privacy
 
+## Blog articles
+
+- Stripe для вашего бизнеса: https://cardproc.com/blog/stripe-for-your-business
+- Подключение Stripe через PHP с помощью API: https://cardproc.com/blog/stripe-via-php-api
+- Система быстрых оплат для интернет-магазина: https://cardproc.com/blog/fast-payment-system
+- Какие тематики не подходят для Stripe: https://cardproc.com/blog/business-categories-stripe
+- Stripe Webhooks: полное руководство: https://cardproc.com/blog/stripe-webhooks-guide
+- Stripe Subscriptions для SaaS: https://cardproc.com/blog/stripe-subscriptions-saas
+- Чарджбеки в Stripe: https://cardproc.com/blog/stripe-chargeback-prevention
+- Быстрая система оплат для e-commerce: https://cardproc.com/blog/fast-payment-system-ecommerce
+- Ограниченные ниши Stripe: https://cardproc.com/blog/stripe-restricted-business-categories
+- Правила платёжной системы Stripe: https://cardproc.com/blog/stripe-platform-rules
+- Как выбрать платёжную систему в 2026: https://cardproc.com/blog/how-to-choose-payment-system
+- Интеграция Stripe для WordPress: https://cardproc.com/blog/stripe-wordpress-integration
+- Что такое Stripe и масштабирование бизнеса: https://cardproc.com/blog/what-is-stripe-scaling-business
+- Интеграция Stripe для международных платежей: https://cardproc.com/blog/stripe-international-payments-integration
+- Приём международных платежей для бизнеса: https://cardproc.com/blog/international-payments-for-business
+- Payment routing в Stripe: https://cardproc.com/blog/stripe-payment-routing-uptime
+
 ## Contact
 
 - Email: hello@cardproc.com

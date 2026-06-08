@@ -40,7 +40,7 @@
 }
 
 .heading {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 800;
   font-size: var(--section-heading);
   line-height: var(--leading-tight);

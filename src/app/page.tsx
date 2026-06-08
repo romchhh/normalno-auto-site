@@ -11,6 +11,7 @@ import ClientsSection from './components/ClientsSection'
 import FaqSection from './components/FaqSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
+import ScrollReveal from './components/ScrollReveal'
 import { buildPageMetadata } from '@/lib/seo'
 import { siteConfig } from '@/lib/site'
 
@@ -27,17 +28,17 @@ export default function Home() {
       <Navbar transparent />
       <main>
         <Hero />
-        <StatsSection />
-        <ServicesSection />
-        <AdvantagesSection />
-        <HowWeWorkSection />
-        <AccountsSection />
-        <SpecialistsSection />
-        <ClientsSection />
-        <FaqSection />
-        <ContactSection />
+        <ScrollReveal><StatsSection /></ScrollReveal>
+        <ScrollReveal delay={80}><ServicesSection /></ScrollReveal>
+        <ScrollReveal delay={80}><AdvantagesSection /></ScrollReveal>
+        <ScrollReveal delay={80}><HowWeWorkSection /></ScrollReveal>
+        <ScrollReveal delay={80}><AccountsSection /></ScrollReveal>
+        <ScrollReveal delay={80}><SpecialistsSection /></ScrollReveal>
+        <ScrollReveal delay={80}><ClientsSection /></ScrollReveal>
+        <ScrollReveal delay={80}><FaqSection /></ScrollReveal>
+        <ScrollReveal delay={80}><ContactSection /></ScrollReveal>
       </main>
-      <Footer />
+      <ScrollReveal delay={80}><Footer /></ScrollReveal>
     </>
   )
 }

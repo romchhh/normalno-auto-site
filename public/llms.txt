@@ -21,6 +21,25 @@ CardProc helps businesses accept payments worldwide via Stripe.
 - Privacy policy: /privacy
 - Contact form: /#kontakt
 
+## Blog articles
+
+- /blog/stripe-for-your-business — Stripe для вашего бизнеса
+- /blog/stripe-via-php-api — Подключение Stripe через PHP с помощью API
+- /blog/fast-payment-system — Система быстрых оплат для интернет-магазина
+- /blog/business-categories-stripe — Какие тематики не подходят для Stripe
+- /blog/stripe-webhooks-guide — Stripe Webhooks: полное руководство по настройке и безопасности
+- /blog/stripe-subscriptions-saas — Stripe Subscriptions для SaaS: рекуррентные платежи
+- /blog/stripe-chargeback-prevention — Чарджбеки в Stripe: предотвращение и споры
+- /blog/fast-payment-system-ecommerce — Быстрая система оплат для интернет-магазина
+- /blog/stripe-restricted-business-categories — Какие тематики Stripe не подключает
+- /blog/stripe-platform-rules — Правила платёжной системы Stripe
+- /blog/how-to-choose-payment-system — Как выбрать платёжную систему в 2026 году
+- /blog/stripe-wordpress-integration — Интеграция Stripe для WordPress: плагин и API
+- /blog/what-is-stripe-scaling-business — Что такое Stripe и масштабирование онлайн-бизнеса
+- /blog/stripe-international-payments-integration — Интеграция Stripe для международных платежей
+- /blog/international-payments-for-business — Приём международных платежей для бизнеса
+- /blog/stripe-payment-routing-uptime — Payment routing в Stripe: аптайм 99.9%
+
 ## Services
 
 1. Turnkey infrastructure: foreign entity, bank account, Stripe account

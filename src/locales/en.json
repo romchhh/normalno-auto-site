@@ -37,7 +37,9 @@
     "cta": "Contact us",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "language": "Language"
+    "language": "Language",
+    "telegram": "Message on Telegram",
+    "openContact": "Leave a request"
   },
   "hero": {
     "headline": "Accept payments from anywhere in the world with",
@@ -224,8 +226,14 @@
     "title": "All articles",
     "subtitle": "Card Processing Blog",
     "category": "Information",
-    "emptyTitle": "Articles coming soon",
-    "emptyDesc": "We're preparing content about Stripe, processing and integrations. Check back later."
+    "backToBlog": "Back to blog",
+    "backHome": "Back to home",
+    "readAlso": "Read also",
+    "readMore": "Read more",
+    "viewAll": "View all articles",
+    "ctaTitle": "Ready to connect Stripe?",
+    "ctaText": "Submit a request — we'll discuss rates, timelines and find the right solution for your niche. Free expert consultation.",
+    "ctaButton": "Leave a request"
   },
   "contact": {
     "heading": "Request a connection",

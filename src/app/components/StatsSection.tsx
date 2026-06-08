@@ -24,9 +24,9 @@ export default function StatsSection() {
 
         <a href="#kontakt" className={styles.cta}>
           {t('stats.cta')}
-          <span className={styles.ctaArrow}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M3 7 H11 M8 4 L11 7 L8 10" />
+          <span className={styles.ctaArrow} aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M2 12 L12 2 M5 2 H12 V9" />
             </svg>
           </span>
         </a>

@@ -70,9 +70,11 @@ export default function ContactForm({ modal = false, onSuccess }: { modal?: bool
       <button type="submit" className={styles.submit} disabled={!form.consent || status === 'loading'}>
         {status === 'loading' ? t('contact.submitting') : t('contact.submit')}
         {status !== 'loading' && (
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M2 14 L14 2 M6 2 H14 V10"/>
-          </svg>
+          <span className={styles.submitArrow} aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M2 12 L12 2 M5 2 H12 V9" />
+            </svg>
+          </span>
         )}
       </button>
     </form>

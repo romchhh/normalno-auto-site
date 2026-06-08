@@ -96,9 +96,9 @@ export default function ServicesSection() {
                     key={key}
                     src={src}
                     alt={alt}
-                    width={52}
-                    height={52}
-                    className={styles.fintechLogo}
+                    width={key === 'revolut' ? 44 : 52}
+                    height={key === 'revolut' ? 44 : 52}
+                    className={`${styles.fintechLogo} ${key === 'revolut' ? styles.fintechLogoRevolut : ''}`}
                   />
                 ))}
               </div>

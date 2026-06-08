@@ -1,7 +1,7 @@
 .footer {
   background: #050a12;
   color: rgba(255, 255, 255, 0.72);
-  padding: 64px var(--page-padding-x) 0;
+  padding: 32px var(--page-padding-x) 0;
 }
 
 .grid {
@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 1.1fr 0.85fr 1fr 1.35fr;
   gap: 40px 48px;
-  padding-bottom: 48px;
+  padding-bottom: 24px;
 }
 
 .col {
@@ -29,7 +29,7 @@
 }
 
 .brandBold {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 800;
   font-size: 22px;
   letter-spacing: -0.03em;
@@ -37,7 +37,7 @@
 }
 
 .brandRegular {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
   font-size: 22px;
   letter-spacing: -0.02em;
@@ -181,13 +181,13 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 48px var(--page-padding-x-md) 0;
+    padding: 24px var(--page-padding-x-md) 0;
   }
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding-bottom: 36px;
+    gap: 16px;
+    padding-bottom: 18px;
   }
 
   .col {
@@ -225,6 +225,6 @@
 
 @media (max-width: 480px) {
   .footer {
-    padding: 40px var(--page-padding-x-sm) 0;
+    padding: 20px var(--page-padding-x-sm) 0;
   }
 }

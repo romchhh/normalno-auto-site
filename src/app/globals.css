@@ -12,6 +12,7 @@
   --white:             #ffffff;
 
   /* typography */
+  --font-sans: var(--font-montserrat), 'Helvetica Neue', sans-serif;
   --section-heading:   clamp(40px, 4.5vw, 56px);
   --text-xl:           clamp(18px, 1.8vw, 20px);
   --text-lg:           clamp(17px, 1.6vw, 19px);
@@ -31,8 +32,8 @@
   --hero-header-padding-x-md: 32px;
   --hero-header-padding-x-sm: 28px;
   --content-max:       1200px;
-  --section-padding-y: 104px;
-  --section-padding-y-md: 76px;
+  --section-padding-y: 52px;
+  --section-padding-y-md: 38px;
 
   /* effects */
   --radius-md:  16px;
@@ -56,7 +57,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-sans);
   font-size: var(--text-base);
   line-height: var(--leading-body);
   background: var(--white);
