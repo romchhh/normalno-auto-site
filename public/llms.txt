@@ -1,77 +1,26 @@
-# WayOfProcessing
+# Нормально авто
 
-> International Stripe payment processing from 1.5%
+> Справедливий лізинг для оновлення автомобіля в Україні
 
-WayOfProcessing helps businesses accept payments worldwide via Stripe.
+## Site map
 
-## Summary
+- /uk — головна: програма оновлення авто 2007–2015, справедливий лізинг, трейд-ін
+- /uk/partneram — партнерська програма для автосалонів і дилерів
+- /uk/privacy — політика конфіденційності
 
-- Service: Stripe payment processing, warmed accounts, company + bank + Stripe setup
-- Commission: from 1.5%
-- Uptime: 99.9% with Payment routing failover
-- Experience: 7 years with Stripe, 1100+ accounts, $53M+ client volume
-- Withdrawals: EUR, USD, PLN, USDT and more
-- Languages: Russian (/ru, default), English (/en)
-- Contact: hello@wayofprocessing.com, Telegram @wayofprocessing
-- Disclaimer: WayOfProcessing is independent and not affiliated with Stripe, Inc.
+## Language
 
-## Key pages
+Ukrainian only (uk-UA)
 
-- Home (RU): /ru
-- Home (EN): /en
-- Blog (RU): /ru/blog
-- Blog (EN): /en/blog
-- Privacy (RU): /ru/privacy
-- Privacy (EN): /en/privacy
-- Contact form: /ru/#kontakt or /en/#kontakt
-- Blog RSS: /ru/blog/feed.xml, /en/blog/feed.xml
+## Brand
 
-## Blog articles
+Нормально авто — ліцензована фінансова компанія, Київ, Україна
 
-- /ru/blog/stripe-for-your-business — Stripe для вашего бизнеса (RU)
-- /en/blog/stripe-for-your-business — Stripe for Your Business (EN)
-- /ru/blog/stripe-via-php-api — Подключение Stripe через PHP с помощью API
-- /ru/blog/fast-payment-system — Система быстрых оплат для интернет-магазина
-- /ru/blog/business-categories-stripe — Какие тематики не подходят для Stripe
-- /ru/blog/stripe-webhooks-guide — Stripe Webhooks: полное руководство по настройке и безопасности
-- /ru/blog/stripe-subscriptions-saas — Stripe Subscriptions для SaaS: рекуррентные платежи
-- /ru/blog/stripe-chargeback-prevention — Чарджбеки в Stripe: предотвращение и споры
-- /ru/blog/fast-payment-system-ecommerce — Быстрая система оплат для интернет-магазина
-- /ru/blog/stripe-restricted-business-categories — Какие тематики Stripe не подключает
-- /ru/blog/stripe-platform-rules — Правила платёжной системы Stripe
-- /ru/blog/how-to-choose-payment-system — Как выбрать платёжную систему в 2026 году
-- /ru/blog/stripe-wordpress-integration — Интеграция Stripe для WordPress: плагин и API
-- /ru/blog/what-is-stripe-scaling-business — Что такое Stripe и масштабирование онлайн-бизнеса
-- /ru/blog/stripe-international-payments-integration — Интеграция Stripe для международных платежей
-- /ru/blog/international-payments-for-business — Приём международных платежей для бизнеса
-- /ru/blog/stripe-payment-routing-uptime — Payment routing в Stripe: аптайм 99.9%
+## Primary CTA
 
-## Services
+Розрахувати оновлення авто: https://t.me/normalnoauto_bot
 
-1. Turnkey infrastructure: foreign entity, bank account, Stripe account
-2. Payment processing for any niche from 1.5%
-3. Warmed Stripe accounts with turnover
-4. Payment routing with automatic failover
-5. Free expert consultation and 24/7 Telegram support
+## Contact
 
-## Homepage sections
-
-- /#services — Services
-- /#advantages — Advantages (uptime, accounts, tax, CRM, niches, withdrawals)
-- /#how-we-work — How we work
-- /#accounts — Accounts in operation
-- /#specialists — WayOfProcessing specialists
-- /#clients — Client niches
-- /#faq — FAQ
-- /#kontakt — Contact form
-
-## Structured data
-
-- Organization, WebSite, FinancialService, FAQPage, HowTo, BlogPosting
-- Sitemap: /sitemap.xml
-- Robots: /robots.txt
-- AI info: /ai.txt
-
-## Attribution
-
-Developed by TeleBots: https://telebots.site/en
+- Telegram channel: https://t.me/normalnoauto
+- Email: info@normalno-auto.com

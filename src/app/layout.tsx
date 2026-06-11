@@ -1,7 +1,8 @@
-import type { Metadata, Viewport } from 'next'
+import type { Viewport } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Providers from './components/Providers'
+import { buildRootMetadata } from '@/lib/seo'
 import { siteConfig } from '@/lib/site'
 
 const montserrat = Montserrat({
@@ -11,8 +12,6 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 })
 
-const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
-
 export const viewport: Viewport = {
   themeColor: siteConfig.themeColor,
   width: 'device-width',
@@ -20,49 +19,14 @@ export const viewport: Viewport = {
   colorScheme: 'light',
 }
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.titleRu,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.descriptionRu,
-  keywords: siteConfig.keywords,
-  authors: [{ name: siteConfig.name, url: siteConfig.url }],
-  creator: siteConfig.name,
-  publisher: siteConfig.name,
-  applicationName: siteConfig.name,
-  referrer: 'origin-when-cross-origin',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-      'max-video-preview': -1,
-    },
-  },
-  category: 'finance',
-  icons: {
-    icon: siteConfig.ogImage,
-    apple: siteConfig.ogImage,
-  },
-  ...(googleVerification
-    ? { verification: { google: googleVerification } }
-    : {}),
-}
+export const metadata = buildRootMetadata()
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" className={montserrat.variable} suppressHydrationWarning>
+    <html lang="uk" className={montserrat.variable} suppressHydrationWarning>
       <head>
+        <link rel="alternate" hrefLang="uk-UA" href={`${siteConfig.url}/uk`} />
+        <link rel="alternate" hrefLang="x-default" href={`${siteConfig.url}/uk`} />
         <link rel="alternate" type="text/plain" href="/ai.txt" title="AI information" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM information" />
       </head>

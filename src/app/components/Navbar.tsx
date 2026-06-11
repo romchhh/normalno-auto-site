@@ -6,14 +6,11 @@ import { useTranslation } from 'react-i18next'
 import { siteConfig } from '@/lib/site'
 import { stripLocalePrefix } from '@/lib/i18n/config'
 import { useLocalizedPath } from '@/lib/i18n/use-locale'
-import { useContactModal } from './ContactModalProvider'
 import { TelegramIcon } from './icons/SocialIcons'
-import LangSwitcher from './LangSwitcher'
 import styles from './Navbar.module.css'
 
 export default function Navbar({ transparent = false }: { transparent?: boolean }) {
   const { t } = useTranslation()
-  const { open: openContactModal } = useContactModal()
   const pathname = usePathname()
   const lp = useLocalizedPath()
   const [menuOpen, setMenuOpen] = useState(false)
@@ -21,7 +18,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
 
   const isHome = stripLocalePrefix(pathname) === '/'
   const hash = (id: string) => (isHome ? `#${id}` : `${lp('/')}#${id}`)
-  const blogPath = lp('/blog')
+  const partnersPath = lp('/partneram')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -36,7 +33,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
   }, [menuOpen])
 
   const isDark = !isHome || !transparent || scrolled
-  const isBlogActive = stripLocalePrefix(pathname) === '/blog' || pathname.includes('/blog/')
+  const isPartnersActive = stripLocalePrefix(pathname) === '/partneram'
 
   return (
     <>
@@ -46,15 +43,15 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
         </a>
 
         <div className={styles.center}>
-          <a href={hash('specialists')}>{t('nav.about')}</a>
-          <a href={hash('services')}>{t('nav.services')}</a>
-          <a href={hash('clients')}>{t('nav.clients')}</a>
-          <a href={blogPath} className={isBlogActive ? styles.activeLink : ''}>{t('nav.blog')}</a>
+          <a href={hash('hero')}>{t('nav.upgrade')}</a>
+          <a href={partnersPath} className={isPartnersActive ? styles.activeLink : ''}>{t('nav.partners')}</a>
+          <a href={hash('about')}>{t('nav.about')}</a>
+          <a href={hash('kontakt')}>{t('nav.contacts')}</a>
         </div>
 
         <div className={styles.actions}>
           <a
-            href={siteConfig.telegramOperatorUrl}
+            href={siteConfig.telegramChannelUrl}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.telegramBtn}
@@ -63,29 +60,34 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
             <TelegramIcon />
           </a>
 
-          <button
-            type="button"
+          <a
+            href={siteConfig.telegramBotUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.contactIconBtn}
-            onClick={openContactModal}
-            aria-label={t('nav.openContact')}
+            aria-label={t('nav.cta')}
           >
             <span className={styles.contactIconArrow} aria-hidden="true">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 12 L12 2 M5 2 H12 V9" />
               </svg>
             </span>
-          </button>
+          </a>
 
           <div className={styles.desktopRight}>
-            <LangSwitcher light={!isDark} />
-            <button type="button" className={styles.cta} onClick={openContactModal}>
+            <a
+              href={siteConfig.telegramBotUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.cta}
+            >
               {t('nav.cta')}
               <span className={styles.ctaArrow} aria-hidden="true">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M2 12 L12 2 M5 2 H12 V9" />
                 </svg>
               </span>
-            </button>
+            </a>
           </div>
 
           <button className={styles.hamburger} onClick={() => setMenuOpen(true)} aria-label={t('nav.openMenu')}>
@@ -101,14 +103,16 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
           </svg>
         </button>
 
-        <a href={hash('specialists')} onClick={() => setMenuOpen(false)}>{t('nav.about')}</a>
-        <a href={hash('services')} onClick={() => setMenuOpen(false)}>{t('nav.services')}</a>
-        <a href={hash('clients')} onClick={() => setMenuOpen(false)}>{t('nav.clients')}</a>
-        <a href={blogPath} onClick={() => setMenuOpen(false)}>{t('nav.blog')}</a>
-        <button
-          type="button"
+        <a href={hash('hero')} onClick={() => setMenuOpen(false)}>{t('nav.upgrade')}</a>
+        <a href={partnersPath} onClick={() => setMenuOpen(false)}>{t('nav.partners')}</a>
+        <a href={hash('about')} onClick={() => setMenuOpen(false)}>{t('nav.about')}</a>
+        <a href={hash('kontakt')} onClick={() => setMenuOpen(false)}>{t('nav.contacts')}</a>
+        <a
+          href={siteConfig.telegramBotUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className={styles.drawerCta}
-          onClick={() => { setMenuOpen(false); openContactModal() }}
+          onClick={() => setMenuOpen(false)}
         >
           {t('nav.cta')}
           <span className={styles.ctaArrow} aria-hidden="true">
@@ -116,8 +120,7 @@ export default function Navbar({ transparent = false }: { transparent?: boolean 
               <path d="M2 12 L12 2 M5 2 H12 V9" />
             </svg>
           </span>
-        </button>
-        <LangSwitcher variant="drawer" />
+        </a>
       </div>
     </>
   )

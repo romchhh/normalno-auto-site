@@ -2,18 +2,17 @@
 
 import Image from 'next/image'
 import { useTranslation } from 'react-i18next'
-import { useContactModal } from './ContactModalProvider'
+import { siteConfig } from '@/lib/site'
 import styles from './Hero.module.css'
 
 export default function Hero() {
   const { t } = useTranslation()
-  const { open: openContactModal } = useContactModal()
 
   return (
-    <section className={styles.hero}>
+    <section id="hero" className={styles.hero}>
       <div className={styles.bg}>
         <Image
-          src="/images/hero-stripe.png"
+          src="/images/hero-auto.jpg"
           alt={t('seo.heroImageAlt')}
           fill
           priority
@@ -29,21 +28,18 @@ export default function Hero() {
             <div className={styles.heroCenter}>
               <h1 className={styles.headline}>
                 {t('hero.headline')}
-                {t('hero.stripe') ? (
-                  <>
-                    {' '}
-                    <em className={styles.stripe}>{t('hero.stripe')}</em>
-                  </>
-                ) : null}
               </h1>
 
-              <p className={styles.badge}>{t('hero.badge')}</p>
+              <p className={styles.lead}>{t('hero.description')}</p>
             </div>
-
-            <p className={styles.description}>{t('hero.description')}</p>
           </div>
 
-          <button type="button" className={styles.card} onClick={openContactModal}>
+          <a
+            href={siteConfig.telegramBotUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.card}
+          >
             <div className={styles.cardText}>
               <p className={styles.cardLabel}>{t('hero.cardLabel')}</p>
               <p className={styles.cardHighlight}>{t('hero.cardHighlight')}</p>
@@ -54,7 +50,7 @@ export default function Hero() {
                 <path d="M2 14 L14 2 M6 2 H14 V10" />
               </svg>
             </div>
-          </button>
+          </a>
         </div>
       </div>
     </section>

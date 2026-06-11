@@ -1,150 +1,172 @@
-import en from '@/locales/en.json'
-import ru from '@/locales/ru.json'
+import uk from '@/locales/uk.json'
 import { localePath, type Locale } from './i18n/config'
 import { absoluteUrl } from './seo'
 import { siteConfig } from './site'
 
 const HOW_WE_WORK_STEPS = ['step1', 'step2', 'step3', 'step4'] as const
 
+function postalAddress() {
+  return {
+    '@type': 'PostalAddress',
+    addressLocality: siteConfig.address.locality,
+    addressRegion: siteConfig.address.region,
+    postalCode: siteConfig.address.postalCode,
+    addressCountry: siteConfig.address.country,
+  }
+}
+
 export function buildHomeJsonLd(locale: Locale) {
-  const copy = locale === 'en' ? en : ru
-  const faqItems = copy.seo.faq
+  const copy = uk
   const homePath = localePath('/', locale)
-  const title = locale === 'en' ? siteConfig.titleEn : siteConfig.titleRu
-  const description = locale === 'en' ? siteConfig.descriptionEn : siteConfig.descriptionRu
+  const homeUrl = absoluteUrl(homePath)
+  const faqItems = copy.seo.faq
+
+  const graph: Record<string, unknown>[] = [
+    {
+      '@type': 'Organization',
+      '@id': `${siteConfig.url}/#organization`,
+      name: siteConfig.name,
+      legalName: siteConfig.legalName,
+      url: siteConfig.url,
+      slogan: siteConfig.seo.slogan,
+      email: siteConfig.email,
+      telephone: siteConfig.phone,
+      description: siteConfig.descriptionUk,
+      knowsAbout: siteConfig.seo.knowsAbout,
+      logo: {
+        '@type': 'ImageObject',
+        url: absoluteUrl(siteConfig.ogImage),
+        width: siteConfig.ogImageWidth,
+        height: siteConfig.ogImageHeight,
+      },
+      image: absoluteUrl(siteConfig.ogImage),
+      address: postalAddress(),
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: siteConfig.email,
+          telephone: siteConfig.phone,
+          url: siteConfig.telegramOperatorUrl,
+          availableLanguage: ['Ukrainian'],
+          areaServed: siteConfig.seo.areaServed,
+        },
+      ],
+      sameAs: [siteConfig.telegramChannelUrl, siteConfig.telegramOperatorUrl, siteConfig.telegramBotUrl],
+    },
+    {
+      '@type': ['FinancialService', 'LocalBusiness'],
+      '@id': `${siteConfig.url}/#service`,
+      name: `${siteConfig.name} — справедливий лізинг`,
+      description: siteConfig.descriptionUk,
+      url: homeUrl,
+      image: absoluteUrl(siteConfig.ogImage),
+      provider: { '@id': `${siteConfig.url}/#organization` },
+      address: postalAddress(),
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: siteConfig.geo.latitude,
+        longitude: siteConfig.geo.longitude,
+      },
+      areaServed: siteConfig.seo.areaServed.map((name) => ({
+        '@type': 'Place',
+        name,
+      })),
+      serviceType: [
+        'Справедливий лізинг автомобілів',
+        'Трейд-ін авто',
+        'Програма оновлення авто',
+        'Фінансовий лізинг',
+      ],
+      termsOfService: absoluteUrl(localePath('/privacy', locale)),
+      priceRange: siteConfig.seo.stats.carPriceRange,
+      offers: {
+        '@type': 'Offer',
+        name: 'Оновлення авто через справедливий лізинг',
+        description: siteConfig.descriptionUk,
+        availability: 'https://schema.org/InStock',
+        url: absoluteUrl(`${homePath}#cta`),
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          priceCurrency: 'USD',
+          minPrice: '400',
+          maxPrice: '600',
+          unitText: 'місяць',
+        },
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteConfig.url}/#website`,
+      name: siteConfig.name,
+      url: siteConfig.url,
+      description: siteConfig.descriptionUk,
+      publisher: { '@id': `${siteConfig.url}/#organization` },
+      inLanguage: ['uk'],
+      potentialAction: [
+        {
+          '@type': 'CommunicateAction',
+          target: absoluteUrl(`${homePath}#kontakt`),
+          name: 'Залишити заявку',
+        },
+        {
+          '@type': 'CommunicateAction',
+          target: siteConfig.telegramBotUrl,
+          name: 'Розрахувати оновлення авто в Telegram',
+        },
+      ],
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${homeUrl}#webpage`,
+      url: homeUrl,
+      name: siteConfig.pages.home.title,
+      description: siteConfig.pages.home.description,
+      isPartOf: { '@id': `${siteConfig.url}/#website` },
+      about: { '@id': `${siteConfig.url}/#service` },
+      primaryImageOfPage: {
+        '@type': 'ImageObject',
+        url: absoluteUrl(siteConfig.ogImage),
+      },
+      inLanguage: locale,
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', '#faq-heading', '#seo-bottom-title'],
+      },
+    },
+    {
+      '@type': 'HowTo',
+      '@id': `${homeUrl}#how-to`,
+      name: copy.howWeWork.heading,
+      description: `Як ${siteConfig.name} допомагає оновити автомобіль: оцінка, підбір, аванс та пересадка на авто класом вище.`,
+      totalTime: 'P3D',
+      step: HOW_WE_WORK_STEPS.map((key, index) => ({
+        '@type': 'HowToStep',
+        position: index + 1,
+        name: copy.howWeWork[key].title,
+        text: copy.howWeWork[key].desc,
+        url: absoluteUrl(`${homePath}#how-we-work`),
+      })),
+    },
+  ]
+
+  if (faqItems.length > 0) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${homeUrl}#faq`,
+      mainEntity: faqItems.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    })
+  }
 
   return {
     '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Organization',
-        '@id': `${siteConfig.url}/#organization`,
-        name: siteConfig.name,
-        legalName: siteConfig.name,
-        url: siteConfig.url,
-        slogan: siteConfig.seo.slogan,
-        email: siteConfig.email,
-        description,
-        knowsAbout: siteConfig.seo.knowsAbout,
-        logo: {
-          '@type': 'ImageObject',
-          url: absoluteUrl(siteConfig.ogImage),
-          width: 1200,
-          height: 630,
-        },
-        contactPoint: [
-          {
-            '@type': 'ContactPoint',
-            contactType: 'customer support',
-            email: siteConfig.email,
-            url: siteConfig.telegramOperatorUrl,
-            availableLanguage: ['Russian', 'English'],
-            areaServed: siteConfig.seo.areaServed,
-          },
-        ],
-        sameAs: [siteConfig.telegramChannelUrl, siteConfig.telegramOperatorUrl],
-      },
-      {
-        '@type': 'WebSite',
-        '@id': `${siteConfig.url}/#website`,
-        name: siteConfig.name,
-        url: siteConfig.url,
-        description,
-        publisher: { '@id': `${siteConfig.url}/#organization` },
-        inLanguage: ['ru', 'en'],
-        potentialAction: [
-          {
-            '@type': 'CommunicateAction',
-            target: absoluteUrl(`${homePath}#kontakt`),
-            name: locale === 'en' ? 'Submit a request' : 'Оставить заявку',
-          },
-          {
-            '@type': 'ReadAction',
-            target: absoluteUrl(localePath('/blog', locale)),
-            name: locale === 'en' ? `Read ${siteConfig.name} blog` : `Читать блог ${siteConfig.name}`,
-          },
-        ],
-      },
-      {
-        '@type': 'FinancialService',
-        '@id': `${siteConfig.url}/#service`,
-        name: `${siteConfig.name} — ${locale === 'en' ? 'Stripe processing' : 'процессинг Stripe'}`,
-        description,
-        url: absoluteUrl(homePath),
-        provider: { '@id': `${siteConfig.url}/#organization` },
-        areaServed: siteConfig.seo.areaServed.map((name) => ({
-          '@type': 'Place',
-          name,
-        })),
-        serviceType: [
-          'Stripe payment processing',
-          'Stripe account setup',
-          'Payment routing',
-          'International payment acceptance',
-          'High-risk payment processing',
-        ],
-        termsOfService: absoluteUrl(localePath('/privacy', locale)),
-        offers: {
-          '@type': 'Offer',
-          name: locale === 'en' ? 'Stripe processing from 1.5%' : 'Процессинг Stripe от 1.5%',
-          description,
-          priceSpecification: {
-            '@type': 'UnitPriceSpecification',
-            price: '1.5',
-            priceCurrency: 'USD',
-            unitText: 'percent commission',
-          },
-          availability: 'https://schema.org/InStock',
-          url: absoluteUrl(`${homePath}#kontakt`),
-        },
-      },
-      {
-        '@type': 'WebPage',
-        '@id': `${absoluteUrl(homePath)}#webpage`,
-        url: absoluteUrl(homePath),
-        name: title,
-        description,
-        isPartOf: { '@id': `${siteConfig.url}/#website` },
-        about: { '@id': `${siteConfig.url}/#service` },
-        primaryImageOfPage: {
-          '@type': 'ImageObject',
-          url: absoluteUrl(siteConfig.ogImage),
-        },
-        inLanguage: locale,
-        speakable: {
-          '@type': 'SpeakableSpecification',
-          cssSelector: ['h1', '#faq-heading'],
-        },
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': `${absoluteUrl(homePath)}#faq`,
-        mainEntity: faqItems.map((item) => ({
-          '@type': 'Question',
-          name: item.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: item.answer,
-          },
-        })),
-      },
-      {
-        '@type': 'HowTo',
-        '@id': `${absoluteUrl(homePath)}#how-to`,
-        name: copy.howWeWork.heading,
-        description:
-          locale === 'en'
-            ? `How ${siteConfig.name} connects Stripe: entity, bank, account, reporting and expert support.`
-            : `Как ${siteConfig.name} подключает Stripe: юрлицо, банк, аккаунт, отчётность и поддержка экспертов.`,
-        totalTime: 'P3D',
-        step: HOW_WE_WORK_STEPS.map((key, index) => ({
-          '@type': 'HowToStep',
-          position: index + 1,
-          name: copy.howWeWork[key].title,
-          text: copy.howWeWork[key].desc,
-          url: absoluteUrl(`${homePath}#how-we-work`),
-        })),
-      },
-    ],
+    '@graph': graph,
   }
 }

@@ -10,35 +10,33 @@ import { siteConfig } from '@/lib/site'
 type Props = { params: { locale: string } }
 
 export function generateMetadata({ params }: Props): Metadata {
-  const locale = (isValidLocale(params.locale) ? params.locale : 'ru') as Locale
-  const isEn = locale === 'en'
+  const locale = (isValidLocale(params.locale) ? params.locale : 'uk') as Locale
 
   return buildPageMetadata({
-    title: isEn ? siteConfig.pages.privacy.titleEn : siteConfig.pages.privacy.title,
-    description: isEn ? siteConfig.pages.privacy.descriptionEn : siteConfig.pages.privacy.description,
+    title: siteConfig.pages.privacy.title,
+    description: siteConfig.pages.privacy.description,
     path: '/privacy',
     locale,
-    keywords: isEn
-      ? [`${siteConfig.name} privacy policy`, 'personal data', 'Stripe processing privacy']
-      : [`политика конфиденциальности ${siteConfig.name}`, 'обработка персональных данных', 'privacy policy'],
+    ogTitle: siteConfig.pages.privacy.ogTitle,
+    ogDescription: siteConfig.pages.privacy.description,
+    keywords: [`політика конфіденційності ${siteConfig.name}`, 'персональні дані', 'GDPR Україна'],
   })
 }
 
 export default function Privacy({ params }: Props) {
-  const locale = (isValidLocale(params.locale) ? params.locale : 'ru') as Locale
-  const isEn = locale === 'en'
+  const locale = (isValidLocale(params.locale) ? params.locale : 'uk') as Locale
 
   const breadcrumb = buildBreadcrumbJsonLd(
     [
       { name: siteConfig.name, path: '/' },
-      { name: isEn ? 'Privacy Policy' : 'Политика конфиденциальности', path: '/privacy' },
+      { name: 'Політика конфіденційності', path: '/privacy' },
     ],
     locale,
   )
 
   const webPage = buildWebPageJsonLd({
-    title: isEn ? siteConfig.pages.privacy.titleEn : siteConfig.pages.privacy.title,
-    description: isEn ? siteConfig.pages.privacy.descriptionEn : siteConfig.pages.privacy.description,
+    title: siteConfig.pages.privacy.title,
+    description: siteConfig.pages.privacy.description,
     path: '/privacy',
     locale,
   })

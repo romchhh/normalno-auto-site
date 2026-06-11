@@ -179,7 +179,7 @@
 
 .contactIconBtn:hover .contactIconArrow {
   transform: rotate(45deg) scale(1.06);
-  box-shadow: 0 8px 28px rgba(99, 91, 255, 0.5);
+  box-shadow: 0 8px 28px rgba(249, 115, 22, 0.5);
 }
 
 .cta {
@@ -201,7 +201,11 @@
   transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
   box-shadow: var(--shadow-glow);
 }
-.cta:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(99, 91, 255, 0.45); }
+.cta {
+  text-decoration: none;
+}
+
+.cta:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(249, 115, 22, 0.45); }
 
 .ctaArrow {
   display: flex;

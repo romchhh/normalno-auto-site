@@ -3,20 +3,24 @@ import { siteConfig } from '@/lib/site'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: siteConfig.titleRu,
+    name: siteConfig.pages.home.title,
     short_name: siteConfig.name,
-    description: siteConfig.descriptionRu,
-    start_url: '/',
+    description: siteConfig.pages.home.description,
+    start_url: '/uk',
+    scope: '/',
     display: 'standalone',
+    orientation: 'portrait',
     background_color: '#0A2540',
     theme_color: siteConfig.themeColor,
-    lang: 'ru',
-    categories: ['finance', 'business'],
+    lang: 'uk',
+    dir: 'ltr',
+    categories: ['finance', 'business', 'automotive'],
     icons: [
       {
         src: siteConfig.ogImage,
         sizes: '512x512',
-        type: 'image/png',
+        type: 'image/jpeg',
+        purpose: 'any',
       },
     ],
   }

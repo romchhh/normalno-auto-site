@@ -1,0 +1,103 @@
+.section {
+  position: relative;
+  z-index: 5;
+  margin-top: clamp(-56px, -6vw, -40px);
+  padding: 0 var(--page-padding-x) clamp(12px, 2vw, 24px);
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(249, 115, 22, 0.18);
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(10, 37, 64, 0.04);
+  padding: clamp(28px, 3.5vw, 40px) clamp(28px, 4vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 100% 0%, rgba(249, 115, 22, 0.06) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.text {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(17px, 1.8vw, 21px);
+  font-weight: 600;
+  line-height: var(--leading-body);
+  color: var(--gray-900);
+  max-width: 920px;
+}
+
+.highlights {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(249, 115, 22, 0.12);
+}
+
+.highlightValue {
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--stripe-blue);
+  line-height: 1.1;
+}
+
+.highlightLabel {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--gray-500);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: 20px;
+    padding: 0 var(--page-padding-x-md) 16px;
+  }
+
+  .card {
+    padding: 24px 20px;
+    gap: 20px;
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .highlight {
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 390px) {
+  .section {
+    padding-left: var(--page-padding-x-sm);
+    padding-right: var(--page-padding-x-sm);
+  }
+}

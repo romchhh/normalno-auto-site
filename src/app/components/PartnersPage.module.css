@@ -1,0 +1,16 @@
+.main {
+  padding-top: 80px;
+}
+
+.hero {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+.subheading {
+  margin-top: 48px;
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--gray-900);
+}

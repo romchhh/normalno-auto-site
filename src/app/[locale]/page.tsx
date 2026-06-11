@@ -1,18 +1,22 @@
 import type { Metadata } from 'next'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
-import SpecialistsSection from '../components/SpecialistsSection'
-import StatsSection from '../components/StatsSection'
-import ServicesSection from '../components/ServicesSection'
-import AdvantagesSection from '../components/AdvantagesSection'
-import AccountsSection from '../components/AccountsSection'
+import HeroUtpSection from '../components/HeroUtpSection'
+import PainPointsSection from '../components/PainPointsSection'
 import HowWeWorkSection from '../components/HowWeWorkSection'
-import ClientsSection from '../components/ClientsSection'
+import ComfortablePaymentSection from '../components/ComfortablePaymentSection'
+import GuaranteedExitSection from '../components/GuaranteedExitSection'
+import FreedomGuaranteeSection from '../components/FreedomGuaranteeSection'
+import FinancialPauseSection from '../components/FinancialPauseSection'
+import FairLeasingSection from '../components/FairLeasingSection'
+import AboutSection from '../components/AboutSection'
+import CtaSection from '../components/CtaSection'
 import FaqSection from '../components/FaqSection'
 import ContactSection from '../components/ContactSection'
 import SeoTextSection from '../components/SeoTextSection'
 import Footer from '../components/Footer'
 import ScrollReveal from '../components/ScrollReveal'
+import SectionBlurDivider from '../components/SectionBlurDivider'
 import JsonLd from '../components/JsonLd'
 import { isValidLocale, type Locale } from '@/lib/i18n/config'
 import { buildPageMetadata } from '@/lib/seo'
@@ -21,31 +25,21 @@ import { siteConfig } from '@/lib/site'
 type Props = { params: { locale: string } }
 
 export function generateMetadata({ params }: Props): Metadata {
-  const locale = isValidLocale(params.locale) ? params.locale : 'ru'
-
-  if (locale === 'en') {
-    return buildPageMetadata({
-      title: siteConfig.titleEn,
-      description: siteConfig.descriptionEn,
-      path: '/',
-      locale: 'en',
-      ogTitle: siteConfig.titleEn,
-      keywords: siteConfig.keywordsEn,
-    })
-  }
+  const locale = isValidLocale(params.locale) ? params.locale : 'uk'
 
   return buildPageMetadata({
-    title: siteConfig.titleRu,
-    description: siteConfig.descriptionRu,
+    title: siteConfig.pages.home.title,
+    description: siteConfig.pages.home.description,
     path: '/',
-    locale: 'ru',
-    ogTitle: siteConfig.titleRu,
-    keywords: siteConfig.keywordsRu,
+    locale,
+    ogTitle: siteConfig.pages.home.ogTitle,
+    ogDescription: siteConfig.pages.home.description,
+    keywords: siteConfig.keywords,
   })
 }
 
 export default function Home({ params }: Props) {
-  const locale = (isValidLocale(params.locale) ? params.locale : 'ru') as Locale
+  const locale = (isValidLocale(params.locale) ? params.locale : 'uk') as Locale
 
   return (
     <>
@@ -53,13 +47,17 @@ export default function Home({ params }: Props) {
       <Navbar transparent />
       <main>
         <Hero />
-        <ScrollReveal><StatsSection /></ScrollReveal>
-        <ScrollReveal delay={80}><ServicesSection /></ScrollReveal>
-        <ScrollReveal delay={80}><AdvantagesSection /></ScrollReveal>
+        <HeroUtpSection />
+        <ScrollReveal><PainPointsSection /></ScrollReveal>
+        <SectionBlurDivider />
         <ScrollReveal delay={80}><HowWeWorkSection /></ScrollReveal>
-        <ScrollReveal delay={80}><AccountsSection /></ScrollReveal>
-        <ScrollReveal delay={80}><SpecialistsSection /></ScrollReveal>
-        <ScrollReveal delay={80}><ClientsSection /></ScrollReveal>
+        <ScrollReveal delay={80}><ComfortablePaymentSection /></ScrollReveal>
+        <ScrollReveal delay={80}><GuaranteedExitSection /></ScrollReveal>
+        <ScrollReveal delay={80}><FreedomGuaranteeSection /></ScrollReveal>
+        <ScrollReveal delay={80}><FinancialPauseSection /></ScrollReveal>
+        <ScrollReveal delay={80}><FairLeasingSection /></ScrollReveal>
+        <ScrollReveal delay={80}><AboutSection /></ScrollReveal>
+        <ScrollReveal delay={80}><CtaSection /></ScrollReveal>
         <ScrollReveal delay={80}><FaqSection /></ScrollReveal>
         <ScrollReveal delay={80}><ContactSection /></ScrollReveal>
         <SeoTextSection />

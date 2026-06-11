@@ -8,10 +8,10 @@ import { useContactModal } from './ContactModalProvider'
 import styles from './Footer.module.css'
 
 const NAV_LINKS = [
-  { key: 'about', hash: 'specialists' },
-  { key: 'services', hash: 'services' },
-  { key: 'clients', hash: 'clients' },
-  { key: 'blog', path: '/blog' },
+  { key: 'upgrade', hash: 'hero' },
+  { key: 'partners', path: '/partneram' },
+  { key: 'about', hash: 'about' },
+  { key: 'contacts', hash: 'kontakt' },
 ] as const
 
 export default function Footer() {
@@ -102,7 +102,7 @@ export default function Footer() {
         <a href={lp('/privacy')}>{t('footer.privacy')}</a>
         <span className={styles.credit}>
           {t('footer.developedBy')}{' '}
-          <a href="https://telebots.site/en" target="_blank" rel="noopener noreferrer">
+          <a href="https://telebots.site" target="_blank" rel="noopener noreferrer">
             TeleBots
           </a>
         </span>

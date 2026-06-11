@@ -73,31 +73,15 @@
 
 .stripe {
   font-style: normal;
-  color: #8b85ff;
+  color: #fdba74;
   text-shadow: 0 0 40px var(--stripe-blue-glow);
 }
 
-.badge {
-  display: inline-flex;
-  align-self: flex-start;
-  max-width: 100%;
-  font-size: clamp(11px, 2.6vw, 17px);
-  font-weight: 700;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 100px;
-  padding: clamp(8px, 1.8vw, 12px) clamp(12px, 3.2vw, 22px);
-  margin-bottom: 0;
-  white-space: nowrap;
-  backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-md);
-}
-
-.description {
-  font-size: var(--text-xl);
+.lead {
+  font-size: clamp(17px, 2vw, 22px);
+  font-weight: 600;
   line-height: var(--leading-body);
-  color: #fff;
+  color: rgba(255, 255, 255, 0.94);
   max-width: 640px;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
 }
@@ -106,6 +90,7 @@
   display: flex;
   align-items: center;
   gap: 28px;
+  text-decoration: none;
   background: rgba(255, 255, 255, 0.98);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-xl);
@@ -167,10 +152,14 @@
 
 .card:hover .cardArrow {
   transform: rotate(45deg) scale(1.05);
-  box-shadow: 0 8px 32px rgba(99, 91, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(249, 115, 22, 0.5);
 }
 
 @media (max-width: 768px) {
+  .bgImage {
+    object-position: right center;
+  }
+
   .hero {
     height: 100svh;
     max-height: 100svh;
@@ -183,7 +172,7 @@
 
   .mainRow {
     display: grid;
-    grid-template-rows: minmax(0, 1fr) auto auto;
+    grid-template-rows: minmax(0, 1fr) auto;
     align-items: end;
     gap: clamp(18px, 4.5vw, 28px);
     flex: 1;
@@ -206,24 +195,14 @@
     font-size: clamp(34px, 9vw, 48px);
   }
 
-  .badge {
-    font-size: clamp(13px, 3.6vw, 16px);
-    padding: 10px 16px;
-    white-space: normal;
-    text-align: center;
-    align-self: flex-start;
-  }
-
-  .description {
-    grid-row: 2;
+  .lead {
     max-width: none;
     font-size: clamp(15px, 4vw, 18px);
     line-height: 1.55;
-    padding-top: clamp(4px, 1vw, 8px);
   }
 
   .card {
-    grid-row: 3;
+    grid-row: 2;
     min-width: unset;
     width: 100%;
     padding: 22px 24px;
@@ -251,6 +230,20 @@
   }
 }
 
+@media (max-width: 1100px) {
+  .mainRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card {
+    min-width: unset;
+    width: 100%;
+    max-width: 480px;
+  }
+
+}
+
 @media (max-width: 390px) {
   .body {
     padding: 88px 14px max(20px, env(safe-area-inset-bottom));
@@ -264,13 +257,7 @@
     font-size: clamp(30px, 8.8vw, 40px);
   }
 
-  .badge {
-    font-size: clamp(12px, 3.4vw, 15px);
-    padding: 9px 14px;
-    letter-spacing: -0.01em;
-  }
-
-  .description {
+  .lead {
     font-size: clamp(14px, 3.8vw, 16px);
   }
 

@@ -5,10 +5,10 @@ import { buildPageMetadata } from '@/lib/seo'
 import styles from './not-found.module.css'
 
 export const metadata = buildPageMetadata({
-  title: 'Страница не найдена',
-  description: 'Запрошенная страница не существует. Вернитесь на главную WayOfProcessing или в блог.',
+  title: 'Сторінку не знайдено',
+  description: 'Запитана сторінка не існує. Поверніться на головну Нормально авто.',
   path: '/404',
-  locale: 'ru',
+  locale: 'uk',
   noIndex: true,
 })
 
@@ -18,16 +18,13 @@ export default function NotFound() {
       <Navbar />
       <main className={styles.main}>
         <p className={styles.code}>404</p>
-        <h1 className={styles.title}>Страница не найдена</h1>
+        <h1 className={styles.title}>Сторінку не знайдено</h1>
         <p className={styles.desc}>
-          Возможно, ссылка устарела или страница была перемещена.
+          Можливо, посилання застаріло або сторінку було переміщено.
         </p>
         <div className={styles.actions}>
-          <Link href="/ru" className={styles.primary}>
-            На главную
-          </Link>
-          <Link href="/ru/blog" className={styles.secondary}>
-            В блог
+          <Link href="/uk" className={styles.primary}>
+            На головну
           </Link>
         </div>
       </main>

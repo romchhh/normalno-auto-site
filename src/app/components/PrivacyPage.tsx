@@ -4,24 +4,14 @@ import { useTranslation } from 'react-i18next'
 import { siteConfig } from '@/lib/site'
 import styles from './PrivacyPage.module.css'
 
-const SECTIONS = [
-  'general',
-  'dataCollected',
-  'purposes',
-  'legalBasis',
-  'sharing',
-  'retention',
-  'cookies',
-  'rights',
-  'security',
-  'transfers',
-  'children',
-  'changes',
-  'contact',
-] as const
+type PrivacySection = {
+  title: string
+  body: string
+}
 
 export default function PrivacyPage() {
   const { t } = useTranslation()
+  const sections = t('privacy.sections', { returnObjects: true }) as PrivacySection[]
 
   return (
     <div className={styles.page}>
@@ -31,44 +21,22 @@ export default function PrivacyPage() {
           <p className={styles.updated}>{t('privacy.updated')}</p>
         </header>
 
-        <p className={styles.intro}>{t('privacy.intro')}</p>
-
         <div className={styles.sections}>
-          {SECTIONS.map((key) => {
-            const paragraphs = t(`privacy.sections.${key}.paragraphs`, {
-              returnObjects: true,
-              email: siteConfig.email,
-              site: siteConfig.url.replace(/^https?:\/\//, ''),
-            }) as string[]
-
-            const listRaw = t(`privacy.sections.${key}.list`, { returnObjects: true })
-            const list = Array.isArray(listRaw) ? (listRaw as string[]) : []
-
-            return (
-              <section key={key} id={key} className={styles.section}>
-                <h2 className={styles.sectionTitle}>{t(`privacy.sections.${key}.title`)}</h2>
-                <div className={styles.paragraphs}>
-                  {paragraphs.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                  ))}
-                  {list.length > 0 && (
-                    <ul className={styles.list}>
-                      {list.map((item, index) => (
-                        <li key={index}>{item}</li>
-                      ))}
-                    </ul>
-                  )}
-                  {key === 'contact' && (
-                    <p>
-                      <a href={`mailto:${siteConfig.email}`} className={styles.contactLink}>
-                        {siteConfig.email}
-                      </a>
-                    </p>
-                  )}
-                </div>
-              </section>
-            )
-          })}
+          {sections.map((section) => (
+            <section key={section.title} className={styles.section}>
+              <h2 className={styles.sectionTitle}>{section.title}</h2>
+              <div className={styles.paragraphs}>
+                <p>{section.body}</p>
+                {section.title.includes('Контакт') && (
+                  <p>
+                    <a href={`mailto:${siteConfig.email}`} className={styles.contactLink}>
+                      {siteConfig.email}
+                    </a>
+                  </p>
+                )}
+              </div>
+            </section>
+          ))}
         </div>
       </article>
     </div>

@@ -9,21 +9,11 @@ type PageMetaInput = {
   locale: Locale
   keywords?: string[]
   ogTitle?: string
+  ogDescription?: string
+  ogImage?: string
+  ogImageAlt?: string
   noIndex?: boolean
-}
-
-type ArticleMetaInput = {
-  title: string
-  description: string
-  path: string
-  locale: Locale
-  image: string
-  imageAlt: string
-  publishedTime: string
-  modifiedTime?: string
-  category: string
-  keywords?: string[]
-  ogTitle?: string
+  type?: 'website' | 'article'
 }
 
 const googleBot = {
@@ -39,14 +29,29 @@ export function absoluteUrl(path: string) {
 }
 
 function buildHreflang(path: string, locale: Locale) {
+  const canonical = localePath(path, locale)
   return {
-    canonical: localePath(path, locale),
+    canonical,
     languages: {
-      'ru-RU': localePath(path, 'ru'),
-      'en-US': localePath(path, 'en'),
-      'x-default': localePath(path, 'ru'),
+      'uk-UA': localePath(path, 'uk'),
+      'x-default': localePath(path, 'uk'),
     },
   }
+}
+
+function buildOgImages(image?: string, alt?: string) {
+  const src = image ?? siteConfig.ogImage
+  const url = src.startsWith('http') ? src : absoluteUrl(src)
+
+  return [
+    {
+      url,
+      width: siteConfig.ogImageWidth,
+      height: siteConfig.ogImageHeight,
+      alt: alt ?? siteConfig.ogImageAlt,
+      type: 'image/jpeg',
+    },
+  ]
 }
 
 function buildSharedMeta({
@@ -54,55 +59,71 @@ function buildSharedMeta({
   description,
   keywords,
   ogTitle,
+  ogDescription,
+  ogImage,
+  ogImageAlt,
   path,
   locale,
   noIndex = false,
+  type = 'website',
 }: {
   title: string
   description: string
   keywords?: string[]
   ogTitle?: string
+  ogDescription?: string
+  ogImage?: string
+  ogImageAlt?: string
   path: string
   locale: Locale
   noIndex?: boolean
+  type?: 'website' | 'article'
 }) {
   const localizedPath = localePath(path, locale)
   const url = absoluteUrl(localizedPath)
   const ogLocale = localeOgLocale(locale)
-  const alternateOgLocale = localeOgLocale(locale === 'ru' ? 'en' : 'ru')
+  const images = buildOgImages(ogImage, ogImageAlt)
+  const resolvedOgTitle = ogTitle ?? title
+  const resolvedOgDescription = ogDescription ?? description
 
   return {
     title,
     description,
     keywords: keywords ?? siteConfig.keywords,
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
+    applicationName: siteConfig.name,
+    category: 'finance',
     alternates: noIndex ? undefined : buildHreflang(path, locale),
     robots: noIndex
       ? { index: false, follow: false }
       : { index: true, follow: true, googleBot },
     other: {
       'content-language': locale,
+      'geo.region': 'UA-30',
+      'geo.placename': siteConfig.address.locality,
+      'geo.position': `${siteConfig.geo.latitude};${siteConfig.geo.longitude}`,
+      ICBM: `${siteConfig.geo.latitude}, ${siteConfig.geo.longitude}`,
     },
     openGraph: {
+      type,
       locale: ogLocale,
-      alternateLocale: [alternateOgLocale],
       url,
       siteName: siteConfig.name,
-      title: ogTitle ?? title,
-      description,
-      images: [
-        {
-          url: siteConfig.ogImage,
-          width: 1200,
-          height: 630,
-          alt: siteConfig.ogImageAlt,
-        },
-      ],
+      title: resolvedOgTitle,
+      description: resolvedOgDescription,
+      images,
+      countryName: siteConfig.address.countryName,
+      emails: [siteConfig.email],
     },
     twitter: {
       card: 'summary_large_image' as const,
-      title: ogTitle ?? title,
-      description,
-      images: [siteConfig.ogImage],
+      title: resolvedOgTitle,
+      description: resolvedOgDescription,
+      images: images.map((image) => image.url),
+      site: siteConfig.twitterHandle,
+      creator: siteConfig.twitterHandle,
     },
   }
 }
@@ -114,66 +135,106 @@ export function buildPageMetadata({
   locale,
   keywords,
   ogTitle,
+  ogDescription,
+  ogImage,
+  ogImageAlt,
   noIndex = false,
+  type = 'website',
 }: PageMetaInput): Metadata {
-  const shared = buildSharedMeta({ title, description, keywords, ogTitle, path, locale, noIndex })
+  const shared = buildSharedMeta({
+    title,
+    description,
+    keywords,
+    ogTitle,
+    ogDescription,
+    ogImage,
+    ogImageAlt,
+    path,
+    locale,
+    noIndex,
+    type,
+  })
 
   return {
     ...shared,
     openGraph: {
       ...shared.openGraph,
-      type: 'website',
+      type,
     },
   }
 }
 
-export function buildArticleMetadata({
-  title,
-  description,
-  path,
-  locale,
-  image,
-  imageAlt,
-  publishedTime,
-  modifiedTime,
-  category,
-  keywords,
-  ogTitle,
-}: ArticleMetaInput): Metadata {
-  const shared = buildSharedMeta({
-    title: `${title} | ${siteConfig.name}`,
-    description,
-    keywords,
-    ogTitle: ogTitle ?? title,
-    path,
-    locale,
-  })
-  const ogImage = image.startsWith('http') ? image : absoluteUrl(image)
+export function buildRootMetadata(): Metadata {
+  const homePath = localePath('/', 'uk')
+  const images = buildOgImages()
 
   return {
-    ...shared,
-    title: `${title} | ${siteConfig.name}`,
+    metadataBase: new URL(siteConfig.url),
+    title: {
+      default: siteConfig.pages.home.title,
+      template: `%s | ${siteConfig.name}`,
+    },
+    description: siteConfig.pages.home.description,
+    keywords: siteConfig.keywords,
+    authors: [{ name: siteConfig.name, url: siteConfig.url }],
+    creator: siteConfig.name,
+    publisher: siteConfig.name,
+    applicationName: siteConfig.name,
+    referrer: 'origin-when-cross-origin',
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
+    alternates: {
+      canonical: homePath,
+      languages: {
+        'uk-UA': homePath,
+        'x-default': homePath,
+      },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot,
+    },
+    category: 'finance',
     openGraph: {
-      ...shared.openGraph,
-      type: 'article',
-      publishedTime,
-      modifiedTime: modifiedTime ?? publishedTime,
-      section: category,
-      authors: [siteConfig.name],
-      tags: keywords,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: imageAlt,
-        },
-      ],
+      type: 'website',
+      locale: siteConfig.locale,
+      url: absoluteUrl(homePath),
+      siteName: siteConfig.name,
+      title: siteConfig.pages.home.ogTitle,
+      description: siteConfig.pages.home.description,
+      images,
+      countryName: siteConfig.address.countryName,
+      emails: [siteConfig.email],
     },
     twitter: {
-      ...shared.twitter,
-      images: [ogImage],
+      card: 'summary_large_image',
+      title: siteConfig.pages.home.ogTitle,
+      description: siteConfig.pages.home.description,
+      images: images.map((image) => image.url),
+      site: siteConfig.twitterHandle,
+      creator: siteConfig.twitterHandle,
     },
+    icons: {
+      icon: siteConfig.ogImage,
+      apple: siteConfig.ogImage,
+    },
+    appleWebApp: {
+      capable: true,
+      title: siteConfig.name,
+      statusBarStyle: 'default',
+    },
+    other: {
+      'content-language': siteConfig.language,
+      'geo.region': 'UA-30',
+      'geo.placename': siteConfig.address.locality,
+    },
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+      : {}),
   }
 }
 

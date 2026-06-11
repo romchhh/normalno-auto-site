@@ -32,7 +32,7 @@ export default function HowWeWorkSection() {
   const { t } = useTranslation()
 
   return (
-    <section id="how-we-work" className={styles.section}>
+    <section id="how-we-work" className={`${styles.section} ${styles.sectionBlurEdge}`}>
       <div className={styles.inner}>
         <h2 className={styles.heading}>{t('howWeWork.heading')}</h2>
 
