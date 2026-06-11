@@ -105,6 +105,12 @@ function buildSharedMeta({
       'geo.placename': siteConfig.address.locality,
       'geo.position': `${siteConfig.geo.latitude};${siteConfig.geo.longitude}`,
       ICBM: `${siteConfig.geo.latitude}, ${siteConfig.geo.longitude}`,
+      'business:contact_data:street_address': siteConfig.address.street,
+      'business:contact_data:locality': siteConfig.address.locality,
+      'business:contact_data:country_name': siteConfig.address.countryName,
+      'business:contact_data:email': siteConfig.email,
+      'business:contact_data:phone_number': siteConfig.phone,
+      'business:contact_data:website': siteConfig.url,
     },
     openGraph: {
       type,
@@ -156,6 +162,7 @@ export function buildPageMetadata({
   })
 
   return {
+    metadataBase: new URL(siteConfig.url),
     ...shared,
     openGraph: {
       ...shared.openGraph,
@@ -231,6 +238,11 @@ export function buildRootMetadata(): Metadata {
       'content-language': siteConfig.language,
       'geo.region': 'UA-30',
       'geo.placename': siteConfig.address.locality,
+      'geo.position': `${siteConfig.geo.latitude};${siteConfig.geo.longitude}`,
+      ICBM: `${siteConfig.geo.latitude}, ${siteConfig.geo.longitude}`,
+      'business:contact_data:street_address': siteConfig.address.street,
+      'business:contact_data:locality': siteConfig.address.locality,
+      'business:contact_data:country_name': siteConfig.address.countryName,
     },
     ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
       ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }

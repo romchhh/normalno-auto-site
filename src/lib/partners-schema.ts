@@ -16,11 +16,17 @@ export function buildPartnersJsonLd(locale: Locale) {
         name: siteConfig.pages.partners.title,
         description: siteConfig.pages.partners.description,
         isPartOf: { '@id': `${siteConfig.url}/#website` },
-        about: { '@id': `${siteConfig.url}/#service` },
+        about: { '@id': `${url}#partner-service` },
+        primaryImageOfPage: {
+          '@type': 'ImageObject',
+          url: absoluteUrl(siteConfig.ogImage),
+        },
         inLanguage: locale,
+        breadcrumb: { '@id': `${url}#breadcrumb` },
       },
       {
         '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
         itemListElement: [
           {
             '@type': 'ListItem',
@@ -38,6 +44,7 @@ export function buildPartnersJsonLd(locale: Locale) {
       },
       {
         '@type': 'Service',
+        '@id': `${url}#partner-service`,
         name: 'Партнерська програма фінансового лізингу',
         description: siteConfig.pages.partners.description,
         provider: { '@id': `${siteConfig.url}/#organization` },

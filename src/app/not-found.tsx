@@ -23,7 +23,7 @@ export default function NotFound() {
           Можливо, посилання застаріло або сторінку було переміщено.
         </p>
         <div className={styles.actions}>
-          <Link href="/uk" className={styles.primary}>
+          <Link href="/" className={styles.primary}>
             На головну
           </Link>
         </div>

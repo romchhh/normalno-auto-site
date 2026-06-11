@@ -34,11 +34,13 @@
 .text {
   position: relative;
   z-index: 1;
+  margin: 0 auto;
+  max-width: 920px;
   font-size: clamp(17px, 1.8vw, 21px);
   font-weight: 600;
   line-height: var(--leading-body);
   color: var(--gray-900);
-  max-width: 920px;
+  text-align: center;
 }
 
 .highlights {

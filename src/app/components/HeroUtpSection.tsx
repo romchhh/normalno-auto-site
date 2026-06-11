@@ -12,7 +12,7 @@ export default function HeroUtpSection() {
     <section className={styles.section} aria-label={t('hero.utpAria')}>
       <div className={styles.inner}>
         <div className={styles.card}>
-          <p className={styles.text}>{t('hero.badge')}</p>
+          <p className={`${styles.text} heroUtpText`}>{t('hero.badge')}</p>
 
           <div className={styles.highlights}>
             {HIGHLIGHTS.map((key) => (

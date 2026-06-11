@@ -17,19 +17,21 @@ export const siteConfig = {
   telegramOperatorUrl: 'https://t.me/NormalnoAutoBot',
   instagramUrl: 'https://www.instagram.com/normalno.in.ua/',
   tiktokUrl: 'https://www.tiktok.com/@normalno.in.ua',
+  mapsUrl: 'https://maps.app.goo.gl/piB5JL3JR84pL8VA7?g_st=ic',
   address: {
-    street: 'м. Київ',
+    street: 'Кільцева дорога, 19',
     locality: 'Київ',
     region: 'Київська область',
     postalCode: '01001',
     country: 'UA',
     countryName: 'Україна',
-    formatted: 'м. Київ, Україна',
+    formatted: 'Київ, Кільцева дорога, 19',
   },
   geo: {
-    latitude: 50.4501,
-    longitude: 30.5234,
+    latitude: 50.3922,
+    longitude: 30.4681,
   },
+  businessHours: 'Mo-Fr 10:00-19:00',
   locale: 'uk_UA',
   language: 'uk',
   ogImage: '/images/hero-auto.jpg',
@@ -59,6 +61,12 @@ export const siteConfig = {
     'програма оновлення авто',
     'авто в лізинг Україна',
     'купити авто в лізинг Київ',
+    'Нормально авто Київ',
+    'АвтоХаб Київ',
+    'лізинг авто з виходом через 3 роки',
+    'оновлення авто через лізинг',
+    'фінансова компанія авто Київ',
+    'Кільцева дорога 19',
   ],
   keywordsPartners: [
     'партнерська програма автосалон',
@@ -97,7 +105,7 @@ export const siteConfig = {
     home: {
       title: 'Нормально авто — оновлення авто 2007–2015 | Справедливий лізинг у Києві',
       description:
-        'Пересідайте на авто за $15 000–25 000 з платежем 400–600$/міс. Трейд-ін, справедливий лізинг, вихід через 3 роки. Ліцензована компанія в Києві. Розрахунок у Telegram.',
+        'Пересідайте на авто за $15 000–25 000 з платежем 400–600$/міс. Трейд-ін, справедливий лізинг, вихід через 3 роки. Офіс у Києві, Кільцева дорога, 19. Безкоштовний розрахунок у Telegram.',
       ogTitle: 'Оновіть своє авто без стресу — Нормально авто',
     },
     partners: {

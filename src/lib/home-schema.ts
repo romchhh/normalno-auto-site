@@ -8,6 +8,7 @@ const HOW_WE_WORK_STEPS = ['step1', 'step2', 'step3', 'step4'] as const
 function postalAddress() {
   return {
     '@type': 'PostalAddress',
+    streetAddress: siteConfig.address.street,
     addressLocality: siteConfig.address.locality,
     addressRegion: siteConfig.address.region,
     postalCode: siteConfig.address.postalCode,
@@ -33,6 +34,29 @@ export function buildHomeJsonLd(locale: Locale) {
       telephone: siteConfig.phone,
       description: siteConfig.descriptionUk,
       knowsAbout: siteConfig.seo.knowsAbout,
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Послуги Нормально авто',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Оновлення авто через справедливий лізинг',
+              description: siteConfig.descriptionUk,
+            },
+          },
+          {
+            '@type': 'Offer',
+            itemOffered: {
+              '@type': 'Service',
+              name: 'Партнерська програма для автосалонів',
+              description: siteConfig.pages.partners.description,
+              url: absoluteUrl(localePath('/partneram', locale)),
+            },
+          },
+        ],
+      },
       logo: {
         '@type': 'ImageObject',
         url: absoluteUrl(siteConfig.ogImage),
@@ -57,15 +81,19 @@ export function buildHomeJsonLd(locale: Locale) {
         siteConfig.telegramBotUrl,
         siteConfig.instagramUrl,
         siteConfig.tiktokUrl,
+        siteConfig.mapsUrl,
       ],
     },
     {
-      '@type': ['FinancialService', 'LocalBusiness'],
+      '@type': ['FinancialService', 'LocalBusiness', 'AutoDealer'],
       '@id': `${siteConfig.url}/#service`,
       name: `${siteConfig.name} — справедливий лізинг`,
       description: siteConfig.descriptionUk,
       url: homeUrl,
       image: absoluteUrl(siteConfig.ogImage),
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+      hasMap: siteConfig.mapsUrl,
       provider: { '@id': `${siteConfig.url}/#organization` },
       address: postalAddress(),
       geo: {
@@ -73,6 +101,7 @@ export function buildHomeJsonLd(locale: Locale) {
         latitude: siteConfig.geo.latitude,
         longitude: siteConfig.geo.longitude,
       },
+      openingHours: siteConfig.businessHours,
       areaServed: siteConfig.seo.areaServed.map((name) => ({
         '@type': 'Place',
         name,
@@ -136,15 +165,28 @@ export function buildHomeJsonLd(locale: Locale) {
       inLanguage: locale,
       speakable: {
         '@type': 'SpeakableSpecification',
-        cssSelector: ['h1', '#faq-heading', '#seo-bottom-title'],
+        cssSelector: ['h1', '.heroUtpText', '#faq-heading', '#seo-bottom-title'],
       },
+      breadcrumb: { '@id': `${homeUrl}#breadcrumb` },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      '@id': `${homeUrl}#breadcrumb`,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: siteConfig.name,
+          item: homeUrl,
+        },
+      ],
     },
     {
       '@type': 'HowTo',
       '@id': `${homeUrl}#how-to`,
       name: copy.howWeWork.heading,
       description: `Як ${siteConfig.name} допомагає оновити автомобіль: оцінка, підбір, аванс та пересадка на авто класом вище.`,
-      totalTime: 'P3D',
+      totalTime: 'P15M',
       step: HOW_WE_WORK_STEPS.map((key, index) => ({
         '@type': 'HowToStep',
         position: index + 1,

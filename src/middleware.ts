@@ -1,20 +1,18 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { defaultLocale, isValidLocale } from '@/lib/i18n/config'
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const segment = pathname.split('/').filter(Boolean)[0]
 
-  if (segment && isValidLocale(segment)) {
-    return NextResponse.next()
+  if (pathname === '/uk' || pathname.startsWith('/uk/')) {
+    const url = request.nextUrl.clone()
+    url.pathname = pathname === '/uk' ? '/' : pathname.slice(3)
+    return NextResponse.redirect(url, 308)
   }
 
-  const url = request.nextUrl.clone()
-  url.pathname = pathname === '/' ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`
-  return NextResponse.redirect(url)
+  return NextResponse.next()
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/uk', '/uk/:path*'],
 }

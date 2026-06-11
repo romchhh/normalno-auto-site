@@ -6,9 +6,9 @@ export function isValidLocale(value: string): value is Locale {
   return locales.includes(value as Locale)
 }
 
-export function localePath(path: string, locale: Locale): string {
-  const normalized = !path || path === '/' ? '' : path.startsWith('/') ? path : `/${path}`
-  return normalized === '' ? `/${locale}` : `/${locale}${normalized}`
+export function localePath(path: string, _locale?: Locale): string {
+  if (!path || path === '/') return '/'
+  return path.startsWith('/') ? path : `/${path}`
 }
 
 export function stripLocalePrefix(pathname: string): string {

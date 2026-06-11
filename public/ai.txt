@@ -6,10 +6,24 @@
 
 Нормально авто — ліцензована фінансова компанія в Києві. Допомагаємо власникам автомобілів 2007–2015 року пересісти на авто за $15 000–25 000 з комфортним платежем 400–600$/міс, трейд-ін та гарантованим виходом через 3 роки.
 
+## Services
+
+- Справедливий лізинг автомобілів
+- Трейд-ін (авто як перший внесок)
+- Програма оновлення авто 2007–2015
+- Партнерська програма для автосалонів і дилерів (винагорода 3%)
+
+## Location
+
+- Address: Київ, Кільцева дорога, 19, Україна
+- Maps: https://maps.app.goo.gl/piB5JL3JR84pL8VA7?g_st=ic
+- Area served: Київ, Київська область, Україна
+
 ## Contact & Social
 
 - Website: https://normalno-auto.com
 - Email: info@normalno-auto.com
+- Phone: +380000000000
 - Telegram bot: https://t.me/NormalnoAutoBot
 - Telegram channel: https://t.me/normalno_ua1
 - Instagram: https://www.instagram.com/normalno.in.ua/
@@ -17,6 +31,10 @@
 
 ## Pages
 
-- /uk — головна (оновлення авто)
-- /uk/partneram — для партнерів
-- /uk/privacy — політика конфіденційності
+- / — головна (оновлення авто, справедливий лізинг)
+- /partneram — партнерська програма для автосалонів
+- /privacy — політика конфіденційності
+
+## Primary CTA
+
+Розрахувати оновлення авто: https://t.me/NormalnoAutoBot

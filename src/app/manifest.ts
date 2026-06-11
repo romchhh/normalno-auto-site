@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: siteConfig.pages.home.title,
     short_name: siteConfig.name,
     description: siteConfig.pages.home.description,
-    start_url: '/uk',
+    start_url: '/',
     scope: '/',
     display: 'standalone',
     orientation: 'portrait',

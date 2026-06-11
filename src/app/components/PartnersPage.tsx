@@ -7,8 +7,8 @@ import styles from './PartnersPage.module.css'
 
 function AudienceIcon({ index }: { index: number }) {
   const props = {
-    width: 22,
-    height: 22,
+    width: 44,
+    height: 44,
     viewBox: '0 0 24 24',
     fill: 'none',
     stroke: 'currentColor',

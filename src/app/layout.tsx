@@ -25,10 +25,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="uk" className={montserrat.variable} suppressHydrationWarning>
       <head>
-        <link rel="alternate" hrefLang="uk-UA" href={`${siteConfig.url}/uk`} />
-        <link rel="alternate" hrefLang="x-default" href={`${siteConfig.url}/uk`} />
+        <link rel="alternate" hrefLang="uk-UA" href={siteConfig.url} />
+        <link rel="alternate" hrefLang="x-default" href={siteConfig.url} />
         <link rel="alternate" type="text/plain" href="/ai.txt" title="AI information" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM information" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       </head>
       <body className={montserrat.className}>
         <Providers>{children}</Providers>
