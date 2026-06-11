@@ -30,7 +30,7 @@ export function generateMetadata({ params }: Props): Metadata {
       path: '/',
       locale: 'en',
       ogTitle: siteConfig.titleEn,
-      keywords: siteConfig.keywords,
+      keywords: siteConfig.keywordsEn,
     })
   }
 
@@ -40,7 +40,7 @@ export function generateMetadata({ params }: Props): Metadata {
     path: '/',
     locale: 'ru',
     ogTitle: siteConfig.titleRu,
-    keywords: siteConfig.keywords,
+    keywords: siteConfig.keywordsRu,
   })
 }
 

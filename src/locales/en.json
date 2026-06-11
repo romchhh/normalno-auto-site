@@ -1,8 +1,8 @@
 {
   "seo": {
     "heroImageAlt": "WayOfProcessing — international Stripe payment processing with warmed accounts",
-    "bottomTitle": "Turnkey Stripe Account Processing — WayOfProcessing",
-    "bottomText": "WayOfProcessing is a turnkey Stripe account processing service. We offer buy and rent options for verified warmed Stripe accounts with up to $500,000/month volume. We work with any niche: e-commerce, SaaS, subscriptions, forex and high-risk. Accept international payments via Stripe without registering a foreign company yourself.\n\nWithdraw funds in EUR, USD, PLN to any IBAN, or in USDT with no limits. Free consultation to match the right Stripe account to your niche.",
+    "bottomTitle": "Buy Verified Stripe Account — Stripe Account for Sale | WayOfProcessing",
+    "bottomText": "WayOfProcessing is where you can buy a verified Stripe account or rent a ready warmed account with transaction history. Stripe account for sale with up to $500,000/month volume — buy Stripe account with instant delivery or choose a rental plan for your niche.\n\nWe sell and rent Stripe merchant accounts for e-commerce, SaaS, subscriptions, forex and high-risk. Processing from 1.5%, payouts in EUR, USD, PLN and USDT. Submit a request for a free quote and instant account matching.",
     "faqHeading": "Frequently asked questions about Stripe processing",
     "faq": [
       {
@@ -18,8 +18,16 @@
         "answer": "We work with marketplaces, SaaS, e-commerce, online courses, subscriptions, and high-risk niches including forex, gaming, vape, supplements and more."
       },
       {
-        "question": "How fast can I get a Stripe account?",
-        "answer": "A ready warmed account can be provided quickly. Creating a new account for your niche takes from 3 days with full setup and verification."
+        "question": "Can I buy a Stripe account or only rent one?",
+        "answer": "Both options are available — buy a verified Stripe account or rent a ready account under WayOfProcessing's legal entity. Stripe accounts for sale and rental for businesses worldwide, with instant delivery for warmed accounts."
+      },
+      {
+        "question": "How fast can I get a ready Stripe account?",
+        "answer": "Buy a Stripe account with instant delivery when a warmed account is in stock. Creating a new verified account for your niche takes from 3 days with full setup."
+      },
+      {
+        "question": "How much does a Stripe account cost?",
+        "answer": "Stripe account price depends on buy vs rent, niche, volume and jurisdiction. Submit a request — we'll calculate the cost for free and recommend the best option."
       },
       {
         "question": "What happens if a Stripe account fails?",
@@ -44,13 +52,13 @@
     "openContact": "Leave a request"
   },
   "hero": {
-    "headline": "Buy or Rent a Warmed Stripe Account — Turnkey Payment Processing",
+    "headline": "Buy Verified Stripe Account — Stripe Account for Sale",
     "stripe": "",
-    "badge": "Processing for any niche from 1.5%",
-    "description": "Our warmed-up accounts tailored for different volumes — for industry professionals and aspiring entrepreneurs alike.",
+    "badge": "Buy Stripe account with instant delivery from 1.5%",
+    "description": "Stripe account for sale — buy a verified warmed account or rent a ready one with turnover history. Instant delivery for business owners who need to accept payments fast.",
     "cardLabel": "Leave a request",
     "cardHighlight": "from 1.5%",
-    "cardSub": "Stripe account setup for your niche"
+    "cardSub": "Buy or rent a Stripe account"
   },
   "specialists": {
     "heading": "Contact WayOfProcessing specialists to work with Stripe.",
@@ -98,7 +106,7 @@
     },
     "processing": {
       "title": "Turnkey Stripe account processing",
-      "intro": "Full Stripe account processing service: rent a ready warmed account with turnover history or get a new account connected within 3 days.",
+      "intro": "Buy a verified Stripe business account or rent a ready warmed account. Stripe accounts for sale and new account setup — from 3 days.",
       "rate": "2%",
       "rateSuffix": " + of turnover",
       "items": {
@@ -123,8 +131,8 @@
     }
   },
   "accounts": {
-    "heading": "Buy or rent ready Stripe accounts",
-    "lead": "Verified warmed accounts with up to $500,000/month volume always available",
+    "heading": "Stripe account for sale — buy or rent",
+    "lead": "Buy verified Stripe account with instant delivery — up to $500,000/month volume",
     "desc": "If one account fails, payments are automatically routed to another warmed Stripe account via our «Payment routing» solution.",
     "imageAlt": "Stripe account screenshot {{number}}",
     "prev": "Previous slide",
@@ -226,9 +234,8 @@
     }
   },
   "blog": {
-    "title": "All articles",
-    "subtitle": "WayOfProcessing Blog",
-    "category": "Information",
+    "title": "WayOfProcessing Blog",
+    "description": "Articles on Stripe: buying and renting accounts, payment processing, integrations, payment routing and accepting international payments for business.",
     "backToBlog": "Back to blog",
     "backHome": "Back to home",
     "readAlso": "Read also",

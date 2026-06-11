@@ -19,17 +19,9 @@ export default function BlogPage() {
       <div className={styles.inner}>
         <ScrollReveal>
           <header className={styles.header}>
-            <div>
-              <h1 className={styles.title}>{t('blog.title')}</h1>
-              <p className={styles.subtitle}>{t('blog.subtitle')}</p>
-            </div>
+            <h1 className={styles.title}>{t('blog.title')}</h1>
+            <p className={styles.description}>{t('blog.description')}</p>
           </header>
-
-          <div className={styles.filters}>
-            <button type="button" className={`${styles.filter} ${styles.filterActive}`}>
-              {t('blog.category')}
-            </button>
-          </div>
         </ScrollReveal>
 
         <div className={styles.grid}>

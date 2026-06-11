@@ -2,8 +2,8 @@
   "posts": [
     {
       "slug": "stripe-for-your-business",
-      "date": "2026-02-27",
-      "image": "/images/hero-stripe.png",
+      "date": "2026-05-28",
+      "image": "https://miro.medium.com/v2/resize:fit:1400/0*_E2yoHDGGVGwj-8n",
       "ru": {
         "title": "Stripe для вашего бизнеса",
         "excerpt": "Stripe — одна из самых популярных платёжных платформ в мире для онлайн-бизнеса. Узнайте, как быстро подключить приём платежей.",
@@ -24,7 +24,7 @@
     {
       "slug": "stripe-via-php-api",
       "date": "2026-02-27",
-      "image": "/images/hero-stripe.png",
+      "image": "https://miro.medium.com/v2/resize:fit:1400/1*pC1tHGMo4FY4YHZXGVn5Dg.png",
       "ru": {
         "title": "Подключение Stripe через PHP с помощью API",
         "excerpt": "Пошаговый обзор интеграции Stripe в PHP-проект: SDK, Checkout, webhooks и безопасность ключей.",
@@ -45,7 +45,7 @@
     {
       "slug": "fast-payment-system",
       "date": "2026-02-27",
-      "image": "/images/hero-stripe.png",
+      "image": "https://dash-agency.com.ua/wp-content/uploads/2026/03/ecommerce_1_ua-1.png",
       "ru": {
         "title": "Система быстрых оплат для интернет-магазина",
         "excerpt": "Как ускорить checkout, снизить брошенные корзины и обеспечить бесперебойный приём платежей.",
@@ -65,8 +65,8 @@
     },
     {
       "slug": "business-categories-stripe",
-      "date": "2026-02-27",
-      "image": "/images/hero-stripe.png",
+      "date": "2026-05-27",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ148tl4_uiSZUq1XJzw7uP8XZox3Q4y6F5IAxVDNlyCiA4v2eK9PqCHal4&s=10",
       "ru": {
         "title": "Какие тематики не подходят для Stripe",
         "excerpt": "High-risk ниши, ограничения Stripe и как WayOfProcessing помогает принимать платежи в сложных категориях.",
@@ -87,7 +87,7 @@
     {
       "slug": "stripe-webhooks-guide",
       "date": "2026-03-05",
-      "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200",
+      "image": "https://scaletozeroaws.com/img/stripe-webhooks-serverless.png",
       "ru": {
         "title": "Stripe Webhooks: полное руководство по настройке и безопасности",
         "excerpt": "Что такое webhook в Stripe, как правильно его настроить, верифицировать подпись и избежать типичных ошибок при обработке событий оплаты.",
@@ -108,7 +108,7 @@
     {
       "slug": "stripe-subscriptions-saas",
       "date": "2026-03-10",
-      "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200",
+      "image": "https://images.stripeassets.com/fzn2n1nzq965/SyxKQ6Ky47aFYxaNRYTEi/59d5e4899888de59678a9710a7bd0cce/Stripe_SaaS_Share_image.png?q=80",
       "ru": {
         "title": "Stripe Subscriptions для SaaS: как настроить рекуррентные платежи",
         "excerpt": "Пошаговое руководство по подпискам в Stripe: создание продуктов, тарифных планов, пробного периода и управление жизненным циклом клиента.",
@@ -129,7 +129,7 @@
     {
       "slug": "stripe-chargeback-prevention",
       "date": "2026-03-15",
-      "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200",
+      "image": "https://cdn.prod.website-files.com/646a0069ffc7d3ef567e9dae/660a7f7974ffabb34929f51a_stripe.webp",
       "ru": {
         "title": "Чарджбеки в Stripe: как предотвратить и выиграть спор",
         "excerpt": "Что такое chargeback, почему он опасен для Stripe-аккаунта, как снизить процент диспутов и правильно ответить на претензию банка.",
@@ -151,7 +151,7 @@
       {
         "slug": "fast-payment-system-ecommerce",
         "date": "2026-02-27",
-        "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200",
+        "image": "https://hurma.work/wp-content/uploads/2022/04/payment.jpg",
         "ru": {
           "title": "Быстрая система оплат для интернет-магазина: как не терять клиентов на этапе checkout",
           "excerpt": "Почему скорость приёма платежей влияет на конверсию и как Stripe помогает интернет-магазинам обрабатывать транзакции мгновенно.",
@@ -172,7 +172,7 @@
       {
         "slug": "stripe-restricted-business-categories",
         "date": "2026-02-27",
-        "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrA2mCVmgjqGYRBP-qA_5zU4CCFBZQKFqIHAh_wYhIovtBSX640qqRI_8&s=10",
         "ru": {
           "title": "Какие тематики Stripe не подключает: полный список ограниченных ниш",
           "excerpt": "Разбираем категории бизнеса, с которыми Stripe работает с ограничениями или отказывает в подключении, и объясняем, что можно сделать.",
@@ -192,8 +192,8 @@
       },
       {
         "slug": "stripe-platform-rules",
-        "date": "2026-02-27",
-        "image": "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?w=1200",
+        "date": "2026-05-25",
+        "image": "https://static.tildacdn.com/tild3531-3034-4537-b861-343362396531/Screen_Shot_2022-03-.png",
         "ru": {
           "title": "Правила платёжной системы Stripe: что важно знать перед подключением",
           "excerpt": "Стандарты безопасности Stripe, политика конфиденциальности данных и легальные способы подключения для бизнесов из СНГ и сложных ниш.",
@@ -214,7 +214,7 @@
       {
         "slug": "how-to-choose-payment-system",
         "date": "2026-02-24",
-        "image": "https://images.unsplash.com/photo-1580048915913-4f8f5cb481c4?w=1200",
+        "image": "https://wezom.com.ua/storage/blog/inner/DShk7DwvoZk6Mq9PZ5R428NXxAc1B3OidtmwIHS5.jpg?v=1714635628",
         "ru": {
           "title": "Как выбрать платёжную систему для онлайн-бизнеса в 2026 году",
           "excerpt": "Сравниваем ключевые критерии выбора платёжного провайдера, разбираем ограничения PayPal и объясняем, почему Stripe остаётся лучшим решением для e-commerce.",
@@ -236,7 +236,7 @@
         {
           "slug": "stripe-wordpress-integration",
           "date": "2026-02-24",
-          "image": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200",
+          "image": "https://ps.w.org/stripe/assets/banner-772x250.png?rev=2784844",
           "ru": {
             "title": "Интеграция Stripe для WordPress: плагин и API под ключ",
             "excerpt": "Как подключить Stripe к сайту на WordPress — через готовый плагин или кастомное API-решение. Полный цикл от аудита до запуска.",
@@ -257,7 +257,7 @@
         {
           "slug": "what-is-stripe-scaling-business",
           "date": "2025-12-31",
-          "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200",
+          "image": "https://locman.com.ua/wp-content/uploads/2025/06/stripe-launches-stablecoin-accounts-available-to-businesses-in-101-countries.webp",
           "ru": {
             "title": "Что такое Stripe и как он помогает масштабировать онлайн-бизнес",
             "excerpt": "Разбираем, что представляет собой Stripe, чем он отличается от банковских переводов и как с его помощью выйти на международный рынок.",
@@ -278,7 +278,7 @@
         {
           "slug": "stripe-international-payments-integration",
           "date": "2025-12-31",
-          "image": "https://images.unsplash.com/photo-1559526324-593bc073d938?w=1200",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRi6EsPDOASBJhiyvfXp1tlWTmHWqVAAWT1Z_pPyIdTnU2A6DzjqFtu_uV&s=10",
           "ru": {
             "title": "Интеграция Stripe для международных платежей: пошаговое руководство",
             "excerpt": "Как подключить Stripe для приёма международных платежей: требования платформы, выбор между покупкой и арендой аккаунта, решения для СНГ.",
@@ -299,7 +299,7 @@
         {
           "slug": "international-payments-for-business",
           "date": "2025-12-31",
-          "image": "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=1200",
+          "image": "https://hutko.org/wp-content/uploads/2025/06/international-payments_main-1024x719.webp",
           "ru": {
             "title": "Приём международных платежей для бизнеса: как выйти на зарубежные рынки без рисков",
             "excerpt": "Разбираем главные проблемы при приёме платежей из-за рубежа и объясняем, как ИП и малый бизнес из СНГ могут работать со Stripe легально.",
@@ -320,7 +320,7 @@
         {
           "slug": "stripe-payment-routing-uptime",
           "date": "2026-03-20",
-          "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200",
+          "image": "https://www.cleveroad.com/images/article-previews/a-scheme-of-simple-payment-process-on-stripe-72-3x.webp",
           "ru": {
             "title": "Payment routing в Stripe: как обеспечить аптайм 99.9% при приёме платежей",
             "excerpt": "Что такое payment routing, почему один Stripe-аккаунт — это риск для бизнеса и как резервная инфраструктура защищает выручку от простоев.",
