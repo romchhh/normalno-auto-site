@@ -22,10 +22,9 @@ export default function AboutSection() {
   return (
     <section id="about" className={styles.section}>
       <div className={styles.inner}>
-        <h2 className={styles.heading}>{t('about.heading')}</h2>
-
         <div className={styles.layout}>
           <div className={styles.content}>
+            <h2 className={styles.heading}>{t('about.heading')}</h2>
             <ul className={contentStyles.list}>
               {items.map((item) => (
                 <li key={item} className={contentStyles.listItem}>
@@ -63,8 +62,8 @@ export default function AboutSection() {
           <div className={styles.images}>
             <div className={styles.imgWrap}>
               <Image
-                src="/images/hero-auto.png"
-                alt={t('about.heading')}
+                src="/images/image.png"
+                alt={t('about.imageAlt')}
                 fill
                 sizes="(max-width: 900px) 100vw, 50vw"
                 className={styles.img}

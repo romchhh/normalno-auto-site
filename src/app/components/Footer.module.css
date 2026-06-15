@@ -1,7 +1,8 @@
 .footer {
-  background: linear-gradient(180deg, #c2410c 0%, #9a3412 100%);
-  color: #fff;
+  background: #fff;
+  color: var(--brand-orange);
   padding: 32px var(--page-padding-x) 0;
+  border-top: 1px solid rgba(var(--brand-orange-rgb), 0.15);
 }
 
 .grid {
@@ -21,38 +22,21 @@
 
 .brand {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0;
+  align-items: center;
   text-decoration: none;
-  line-height: 1.1;
+  line-height: 0;
   margin-bottom: 4px;
-}
-
-.brandBold {
-  font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: 22px;
-  letter-spacing: -0.03em;
-  color: #fff;
-}
-
-.brandRegular {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 22px;
-  letter-spacing: -0.02em;
-  color: #fff;
 }
 
 .copyright {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--brand-orange-dark);
   line-height: 1.5;
 }
 
 .legal {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--brand-orange-dark);
   line-height: 1.65;
   max-width: 260px;
 }
@@ -60,7 +44,7 @@
 .heading {
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: var(--brand-orange);
   margin-bottom: 4px;
 }
 
@@ -73,13 +57,13 @@
 .nav a {
   font-size: 15px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--brand-orange);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .nav a:hover {
-  color: #fff;
+  color: var(--brand-orange-darker);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -113,13 +97,13 @@
 .contactIconInstagram,
 .contactIconTiktok,
 .contactIconSupport {
-  color: #fff;
+  color: var(--brand-orange);
 }
 
 .contactLink {
   font-size: 15px;
   font-weight: 500;
-  color: #fff;
+  color: var(--brand-orange);
   text-decoration: underline;
   text-underline-offset: 3px;
   background: none;
@@ -132,7 +116,7 @@
 }
 
 .contactLink:hover {
-  color: #fff;
+  color: var(--brand-orange-darker);
   text-decoration-thickness: 2px;
 }
 
@@ -143,7 +127,7 @@
 .aboutText {
   font-size: 15px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--brand-orange-dark);
   max-width: 420px;
 }
 
@@ -156,19 +140,19 @@
   flex-wrap: wrap;
   gap: 12px;
   padding: 20px 0 28px;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  border-top: 1px solid rgba(var(--brand-orange-rgb), 0.2);
 }
 
 .bottom a {
   font-size: 14px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--brand-orange);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .bottom a:hover {
-  color: #fff;
+  color: var(--brand-orange-darker);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -176,18 +160,19 @@
 .credit {
   font-size: 16px;
   font-weight: 600;
-  color: #fff;
+  color: var(--brand-orange);
 }
 
 .credit a {
   font-size: 16px;
   font-weight: 700;
-  color: #fff;
+  color: var(--brand-orange);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .credit a:hover {
+  color: var(--brand-orange-darker);
   text-decoration-thickness: 2px;
 }
 

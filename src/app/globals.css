@@ -1,18 +1,31 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --stripe-blue:       #F97316;
-  --stripe-blue-hover: #EA580C;
-  --stripe-blue-light: rgba(249, 115, 22, 0.12);
-  --stripe-blue-glow:  rgba(249, 115, 22, 0.35);
-  --gray-900:          #0A2540;
-  --gray-500:          #425466;
-  --gray-400:          #697386;
-  --gray-100:          #F6F9FC;
+  /* LOGOBOOK: orange #FF8800, purple #A300FF, black #000000 */
+  --brand-orange:       #FF8800;
+  --brand-orange-hover: #E67A00;
+  --brand-orange-dark:  #CC6D00;
+  --brand-orange-darker:#A35500;
+  --brand-orange-rgb:   255, 136, 0;
+  --brand-purple:       #A300FF;
+  --brand-purple-hover: #8A00D9;
+  --brand-purple-rgb:   163, 0, 255;
+  --brand-black:        #000000;
+
+  --stripe-blue:       var(--brand-orange);
+  --stripe-blue-hover: var(--brand-orange-hover);
+  --stripe-blue-light: rgba(var(--brand-orange-rgb), 0.12);
+  --stripe-blue-glow:  rgba(var(--brand-orange-rgb), 0.35);
+  --brand-purple-light: rgba(var(--brand-purple-rgb), 0.12);
+
+  --gray-900:          var(--brand-black);
+  --gray-500:          #333333;
+  --gray-400:          #666666;
+  --gray-100:          #F6F6F6;
   --white:             #ffffff;
 
-  /* typography */
-  --font-sans: var(--font-montserrat), 'Helvetica Neue', sans-serif;
+  /* typography — Futura PT (LOGOBOOK) */
+  --font-sans: 'Futura PT', 'Futura PT Book', 'Century Gothic', 'Trebuchet MS', sans-serif;
   --section-heading:   clamp(40px, 4.5vw, 56px);
   --text-xl:           clamp(18px, 1.8vw, 20px);
   --text-lg:           clamp(17px, 1.6vw, 19px);
@@ -40,18 +53,18 @@
   --radius-lg:  22px;
   --radius-xl:  28px;
   --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-sm:  0 2px 12px rgba(10, 37, 64, 0.06);
-  --shadow-md:  0 8px 32px rgba(10, 37, 64, 0.10);
-  --shadow-lg:  0 16px 48px rgba(10, 37, 64, 0.12);
-  --shadow-xl:  0 24px 64px rgba(10, 37, 64, 0.16);
-  --shadow-glow: 0 12px 40px rgba(249, 115, 22, 0.28);
+  --shadow-sm:  0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md:  0 8px 32px rgba(0, 0, 0, 0.10);
+  --shadow-lg:  0 16px 48px rgba(0, 0, 0, 0.12);
+  --shadow-xl:  0 24px 64px rgba(0, 0, 0, 0.16);
+  --shadow-glow: 0 12px 40px rgba(var(--brand-orange-rgb), 0.28);
 
   /* legacy */
   --deep:  var(--gray-900);
   --slate: var(--gray-400);
   --sky:   var(--stripe-blue);
   --sand:  var(--gray-100);
-  --black: #0a0a0a;
+  --black: var(--brand-black);
 }
 
 html { scroll-behavior: smooth; }
@@ -82,6 +95,6 @@ body {
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.3); }
-  50%       { box-shadow: 0 0 0 8px rgba(249, 115, 22, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(var(--brand-orange-rgb), 0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(var(--brand-orange-rgb), 0); }
 }

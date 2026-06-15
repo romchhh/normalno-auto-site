@@ -1,247 +1,184 @@
-.nav {
+.navShell {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  display: flex;
+  padding: 16px var(--page-padding-x) 0;
+  pointer-events: none;
+}
+
+.nav {
+  pointer-events: auto;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  padding: 28px var(--hero-header-padding-x);
-  transition: background 0.35s, backdrop-filter 0.35s, padding 0.35s, box-shadow 0.35s;
-}
-
-.transparent {
-  background: transparent;
-}
-
-.solid {
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(20px) saturate(1.2);
-  padding: 20px var(--hero-header-padding-x);
-  box-shadow: var(--shadow-md);
-  border-bottom: 1px solid rgba(10, 37, 64, 0.06);
-}
-
-/* Hero — білий текст (лого завжди окремо) */
-.navLight .center a,
-.navLight .center a:hover,
-.navLight .center .activeLink {
-  color: #fff;
-}
-
-.navLight .hamburger span {
+  gap: 24px 40px;
+  padding: 22px 40px;
   background: #fff;
-}
-
-/* Після скролу — чорний текст */
-.navDark .center a {
-  color: var(--gray-900);
-}
-
-.navDark .center a:hover {
-  color: var(--stripe-blue);
-}
-
-.navDark .center .activeLink {
-  color: var(--stripe-blue);
-  font-weight: 600;
-}
-
-.navDark .hamburger span {
-  background: var(--gray-900);
+  border-radius: 999px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .brand {
-  font-family: var(--font-sans);
-  font-weight: 800;
-  font-size: 28px;
-  letter-spacing: -0.03em;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   flex-shrink: 0;
-  color: #fff;
-  transition: color 0.35s;
+  line-height: 0;
+  justify-self: start;
 }
 
-.brand span {
-  color: var(--stripe-blue);
-  transition: color 0.35s;
-}
-
-.navDark .brand {
-  color: var(--gray-900);
+.logo {
+  height: 52px;
+  max-width: min(240px, 42vw);
 }
 
 .center {
   display: flex;
   align-items: center;
-  gap: 40px;
-}
-
-@media (min-width: 769px) {
-  .nav {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-  }
-
-  .brand {
-    justify-self: start;
-  }
-
-  .center {
-    justify-self: center;
-  }
-
-  .actions {
-    justify-self: end;
-  }
+  justify-content: center;
+  gap: clamp(24px, 3.5vw, 48px);
+  justify-self: center;
 }
 
 .center a {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 500;
+  color: var(--gray-900);
   text-decoration: none;
-  transition: color 0.35s;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.center a:hover {
+  color: var(--brand-orange);
+}
+
+.center .activeLink {
+  color: var(--brand-orange);
+  font-weight: 600;
 }
 
 .actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-shrink: 0;
+  justify-self: end;
+}
+
+.mobileRight {
+  display: none;
+  align-items: center;
   gap: 10px;
   flex-shrink: 0;
 }
 
-.desktopRight {
-  display: flex;
-  align-items: center;
-  gap: 22px;
+.ctaDesktop {
+  display: inline-flex;
+}
+
+.telegramBtnMobile {
+  display: none;
 }
 
 .telegramBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   padding: 0;
   border: none;
   background: none;
-  color: var(--stripe-blue);
+  color: var(--brand-orange);
   cursor: pointer;
   flex-shrink: 0;
   text-decoration: none;
   line-height: 0;
-  transition: transform 0.25s var(--ease-out), opacity 0.25s;
+  transition: transform 0.2s var(--ease-out), opacity 0.2s;
 }
 
 .telegramBtn svg {
-  width: 34px;
-  height: 34px;
-}
-
-@media (min-width: 769px) {
-  .telegramBtn {
-    width: 54px;
-    height: 54px;
-  }
-
-  .telegramBtn svg {
-    width: 38px;
-    height: 38px;
-  }
+  width: 32px;
+  height: 32px;
 }
 
 .telegramBtn:hover {
   opacity: 0.75;
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
 .contactIconBtn {
   display: none;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-.contactIconArrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--stripe-blue) 0%, var(--stripe-blue-hover) 100%);
-  color: #fff;
-  box-shadow: var(--shadow-glow);
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
-}
-
-.contactIconBtn:hover .contactIconArrow {
-  transform: rotate(45deg) scale(1.06);
-  box-shadow: 0 8px 28px rgba(249, 115, 22, 0.5);
 }
 
 .cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  height: 42px;
-  background: linear-gradient(135deg, var(--stripe-blue) 0%, var(--stripe-blue-hover) 100%);
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  padding: 0 10px 0 24px;
+  background: var(--brand-black);
   border: none;
-  border-radius: 50px;
-  padding: 0 8px 0 18px;
+  border-radius: 999px;
   font-family: inherit;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+  font-size: 17px;
+  font-weight: 600;
   color: #fff;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
-  box-shadow: var(--shadow-glow);
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s var(--ease-out);
 }
-.cta {
-  text-decoration: none;
-}
-
-.cta:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(249, 115, 22, 0.45); }
 
 .ctaArrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: #fff;
-  color: var(--stripe-blue);
+  color: var(--brand-black);
   flex-shrink: 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
-  transition: transform 0.25s var(--ease-out), box-shadow 0.25s;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.cta:hover {
+  background: #1a1a1a;
+  transform: translateY(-1px);
 }
 
 .cta:hover .ctaArrow {
-  transform: rotate(45deg) scale(1.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transform: rotate(45deg) scale(1.05);
 }
 
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
   cursor: pointer;
   background: none;
   border: none;
   padding: 6px 4px;
 }
+
 .hamburger span {
   display: block;
-  width: 30px;
-  height: 3.5px;
+  width: 26px;
+  height: 2.5px;
   background: var(--gray-900);
   border-radius: 3px;
-  transition: background 0.35s;
 }
 
 .drawer {
@@ -252,14 +189,49 @@
   background: var(--white);
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
+  padding: 24px var(--page-padding-x-md) 40px;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
 }
-.drawer.open { opacity: 1; pointer-events: all; }
-.drawer a {
+
+.drawer.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.drawerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 32px;
+}
+
+.drawerBrand {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.drawerLogo {
+  height: 44px;
+  max-width: min(200px, 60vw);
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  justify-content: center;
+  width: 100%;
+}
+
+.drawerNav a {
   font-family: var(--font-sans);
   font-size: 36px;
   font-weight: 800;
@@ -267,98 +239,135 @@
   text-decoration: none;
   transition: color 0.2s;
 }
-.drawer a:hover { color: var(--stripe-blue); }
+
+.drawerNav a:hover {
+  color: var(--brand-orange);
+}
 
 .drawerCta {
-  display: inline-flex !important;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 15px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.04em;
-  background: linear-gradient(135deg, var(--stripe-blue) 0%, var(--stripe-blue-hover) 100%) !important;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(--brand-orange);
   border: none;
-  border-radius: 50px;
-  padding: 16px 28px 16px 32px;
+  border-radius: 999px;
+  padding: 16px 32px;
   font-family: inherit;
-  color: #fff !important;
+  color: #fff;
+  text-decoration: none;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 24px;
+  transition: background 0.2s, transform 0.2s var(--ease-out);
   box-shadow: var(--shadow-glow);
 }
 
-.drawerCta:hover .ctaArrow {
-  transform: rotate(45deg) scale(1.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+.drawerCta:hover {
+  background: var(--brand-orange-hover);
+  transform: translateY(-1px);
 }
+
 .drawerClose {
-  position: absolute;
-  top: 28px; right: 28px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 8px;
   color: var(--gray-900);
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-  .nav { padding: 18px 16px; }
-  .solid { padding: 14px 16px; }
-  .center,
-  .desktopRight { display: none; }
-  .contactIconBtn { display: flex; align-items: center; justify-content: center; }
-  .hamburger { display: flex; }
-  .actions { gap: 6px; }
+  .navShell {
+    padding: 12px var(--page-padding-x-md) 0;
+  }
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 28px;
+    padding: 16px 22px;
+    gap: 12px;
+  }
 
   .brand {
-    font-size: clamp(13px, 3.5vw, 17px);
-    letter-spacing: -0.045em;
-    line-height: 1.1;
+    flex-shrink: 1;
     min-width: 0;
   }
 
-  .telegramBtn {
+  .logo {
+    height: 40px;
+    max-width: min(180px, 46vw);
+  }
+
+  .center {
+    display: none;
+  }
+
+  .actions {
+    flex-shrink: 0;
+    gap: 0;
+    margin-left: auto;
+  }
+
+  .telegramBtn,
+  .ctaDesktop {
+    display: none;
+  }
+
+  .mobileRight {
+    display: flex;
+  }
+
+  .telegramBtnMobile {
+    display: flex;
     width: 42px;
     height: 42px;
   }
 
-  .telegramBtn svg {
-    width: 38px;
-    height: 38px;
+  .telegramBtnMobile svg {
+    width: 30px;
+    height: 30px;
   }
 
-  .contactIconArrow {
-    width: 40px;
-    height: 40px;
+  .hamburger {
+    display: flex;
   }
 }
 
-@media (max-width: 390px) {
-  .nav { padding: 16px 12px; }
-  .solid { padding: 12px 12px; }
-  .actions { gap: 4px; }
-
-  .brand {
-    font-size: 12px;
-    letter-spacing: -0.05em;
+@media (max-width: 480px) {
+  .navShell {
+    padding: 10px var(--page-padding-x-sm) 0;
   }
 
-  .telegramBtn {
+  .nav {
+    padding: 14px 18px;
+  }
+
+  .drawer {
+    padding: 20px var(--page-padding-x-sm) 32px;
+  }
+
+  .drawerNav a {
+    font-size: 30px;
+  }
+
+  .mobileRight {
+    gap: 8px;
+  }
+
+  .telegramBtnMobile {
     width: 38px;
     height: 38px;
   }
 
-  .telegramBtn svg {
-    width: 34px;
-    height: 34px;
-  }
-
-  .contactIconArrow {
-    width: 36px;
-    height: 36px;
+  .telegramBtnMobile svg {
+    width: 28px;
+    height: 28px;
   }
 
   .hamburger span {
-    width: 26px;
+    width: 22px;
   }
 }

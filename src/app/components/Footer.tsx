@@ -5,6 +5,7 @@ import { siteConfig } from '@/lib/site'
 import { useLocalizedPath } from '@/lib/i18n/use-locale'
 import { InstagramIcon, TelegramIcon, TikTokIcon, SupportIcon } from './icons/SocialIcons'
 import { useContactModal } from './ContactModalProvider'
+import SiteLogo from './SiteLogo'
 import styles from './Footer.module.css'
 
 const NAV_LINKS = [
@@ -57,9 +58,8 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.grid}>
         <div className={styles.col}>
-          <a href={lp('/')} className={styles.brand}>
-            <span className={styles.brandBold}>{t('footer.brandBold')}</span>
-            <span className={styles.brandRegular}>{t('footer.brandRegular')}</span>
+          <a href={lp('/')} className={styles.brand} aria-label={siteConfig.name}>
+            <SiteLogo />
           </a>
           <p className={styles.copyright}>{t('footer.copyright', { year })}</p>
           <p className={styles.legal}>{t('footer.legal')}</p>

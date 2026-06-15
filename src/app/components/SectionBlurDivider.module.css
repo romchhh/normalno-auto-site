@@ -47,7 +47,7 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(249, 115, 22, 0.12) 50%,
+    rgba(var(--brand-orange-rgb), 0.12) 50%,
     transparent 100%
   );
 }

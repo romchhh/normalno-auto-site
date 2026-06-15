@@ -39,6 +39,13 @@ function buildHreflang(path: string, locale: Locale) {
   }
 }
 
+function ogImageMimeType(src: string) {
+  if (src.endsWith('.webp')) return 'image/webp'
+  if (src.endsWith('.svg')) return 'image/svg+xml'
+  if (src.endsWith('.png')) return 'image/png'
+  return 'image/jpeg'
+}
+
 function buildOgImages(image?: string, alt?: string) {
   const src = image ?? siteConfig.ogImage
   const url = src.startsWith('http') ? src : absoluteUrl(src)
@@ -49,7 +56,7 @@ function buildOgImages(image?: string, alt?: string) {
       width: siteConfig.ogImageWidth,
       height: siteConfig.ogImageHeight,
       alt: alt ?? siteConfig.ogImageAlt,
-      type: 'image/jpeg',
+      type: ogImageMimeType(src),
     },
   ]
 }
@@ -128,8 +135,6 @@ function buildSharedMeta({
       title: resolvedOgTitle,
       description: resolvedOgDescription,
       images: images.map((image) => image.url),
-      site: siteConfig.twitterHandle,
-      creator: siteConfig.twitterHandle,
     },
   }
 }
@@ -164,6 +169,7 @@ export function buildPageMetadata({
   return {
     metadataBase: new URL(siteConfig.url),
     ...shared,
+    title: { absolute: title },
     openGraph: {
       ...shared.openGraph,
       type,
@@ -177,10 +183,7 @@ export function buildRootMetadata(): Metadata {
 
   return {
     metadataBase: new URL(siteConfig.url),
-    title: {
-      default: siteConfig.pages.home.title,
-      template: `%s | ${siteConfig.name}`,
-    },
+    title: siteConfig.pages.home.title,
     description: siteConfig.pages.home.description,
     keywords: siteConfig.keywords,
     authors: [{ name: siteConfig.name, url: siteConfig.url }],
@@ -222,12 +225,11 @@ export function buildRootMetadata(): Metadata {
       title: siteConfig.pages.home.ogTitle,
       description: siteConfig.pages.home.description,
       images: images.map((image) => image.url),
-      site: siteConfig.twitterHandle,
-      creator: siteConfig.twitterHandle,
     },
     icons: {
-      icon: siteConfig.ogImage,
-      apple: siteConfig.ogImage,
+      icon: siteConfig.iconSrc,
+      shortcut: siteConfig.iconSrc,
+      apple: siteConfig.iconSrc,
     },
     appleWebApp: {
       capable: true,
@@ -243,6 +245,9 @@ export function buildRootMetadata(): Metadata {
       'business:contact_data:street_address': siteConfig.address.street,
       'business:contact_data:locality': siteConfig.address.locality,
       'business:contact_data:country_name': siteConfig.address.countryName,
+      'business:contact_data:email': siteConfig.email,
+      'business:contact_data:phone_number': siteConfig.phone,
+      'business:contact_data:website': siteConfig.url,
     },
     ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
       ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }

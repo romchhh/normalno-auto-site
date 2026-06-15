@@ -7,6 +7,7 @@ export const siteConfig = {
   email: 'info@normalno-auto.com',
   phone: '+380000000000',
   telegramBotUrl: 'https://t.me/NormalnoAutoBot',
+  telegramPartnersUrl: 'https://t.me/nickolnv',
   telegramChannelUrl: 'https://t.me/normalno_ua1',
   instagramUrl: 'https://www.instagram.com/normalno.in.ua/',
   tiktokUrl: 'https://www.tiktok.com/@normalno.in.ua',
@@ -31,8 +32,11 @@ export const siteConfig = {
   ogImageWidth: 1200,
   ogImageHeight: 630,
   ogImageAlt: 'Нормально авто — оновлення автомобіля через справедливий лізинг у Києві',
-  themeColor: '#F97316',
-  twitterHandle: '@normalno.in.ua',
+  ogImagePartners: '/images/autos/car-in-use.webp',
+  ogImagePartnersAlt: 'Автомобіль з пробігом — партнерська програма фінансового лізингу Нормально авто',
+  logoSrc: '/images/logo-wordmark.png',
+  iconSrc: '/images/logo.svg',
+  themeColor: '#FF8800',
   keywords: [
     'Нормально авто',
     'оновлення автомобіля',
@@ -108,6 +112,7 @@ export const siteConfig = {
       description:
         'Політика конфіденційності Нормально авто: які дані збираємо, як використовуємо та захищаємо персональну інформацію користувачів сайту та заявок.',
       ogTitle: 'Політика конфіденційності — Нормально авто',
+      dateModified: '2026-06-01',
     },
   },
 }

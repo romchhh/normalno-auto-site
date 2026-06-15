@@ -14,6 +14,8 @@ export const metadata: Metadata = buildPageMetadata({
   locale: 'uk',
   ogTitle: siteConfig.pages.partners.ogTitle,
   ogDescription: siteConfig.pages.partners.description,
+  ogImage: siteConfig.ogImagePartners,
+  ogImageAlt: siteConfig.ogImagePartnersAlt,
   keywords: [...siteConfig.keywords, ...siteConfig.keywordsPartners],
 })
 

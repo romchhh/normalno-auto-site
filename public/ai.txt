@@ -23,7 +23,7 @@
 
 - Website: https://normalno-auto.com
 - Email: info@normalno-auto.com
-- Phone: +380000000000
+- Phone: Telegram @NormalnoAutoBot (основний канал зв'язку)
 - Telegram bot: https://t.me/NormalnoAutoBot
 - Telegram channel: https://t.me/normalno_ua1
 - Instagram: https://www.instagram.com/normalno.in.ua/

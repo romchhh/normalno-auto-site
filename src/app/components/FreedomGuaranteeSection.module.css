@@ -2,9 +2,9 @@
   position: relative;
   background: linear-gradient(
     180deg,
-    var(--stripe-blue) 0%,
-    #ea580c 55%,
-    #c2410c 100%
+    var(--brand-orange) 0%,
+    var(--brand-orange-dark) 55%,
+    var(--brand-orange-darker) 100%
   );
   padding: var(--section-padding-y) var(--page-padding-x);
 }
@@ -104,7 +104,7 @@
 .badgeOrange {
   background: linear-gradient(135deg, var(--stripe-blue) 0%, var(--stripe-blue-hover) 100%);
   color: var(--white);
-  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 4px 16px rgba(var(--brand-orange-rgb), 0.35);
 }
 
 .badgeDark {

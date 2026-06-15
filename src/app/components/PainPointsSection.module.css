@@ -15,8 +15,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 55% at 50% 20%, rgba(249, 115, 22, 0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 80% 85%, rgba(249, 115, 22, 0.04) 0%, transparent 65%);
+    radial-gradient(ellipse 80% 55% at 50% 20%, rgba(var(--brand-orange-rgb), 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 85%, rgba(var(--brand-orange-rgb), 0.04) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -58,7 +58,7 @@
   padding: 16px 20px;
   background: var(--white);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(var(--brand-orange-rgb), 0.1);
   box-shadow: var(--shadow-sm);
   text-align: left;
   transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), border-color 0.25s;
@@ -67,7 +67,7 @@
 .listItem:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: rgba(249, 115, 22, 0.22);
+  border-color: rgba(var(--brand-orange-rgb), 0.22);
 }
 
 .bullet {
@@ -80,7 +80,7 @@
   border-radius: 50%;
   background: linear-gradient(135deg, var(--stripe-blue) 0%, var(--stripe-blue-hover) 100%);
   color: var(--white);
-  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
+  box-shadow: 0 4px 14px rgba(var(--brand-orange-rgb), 0.35);
 }
 
 .listText {
@@ -100,7 +100,7 @@
   padding: 20px 28px;
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(var(--brand-orange-rgb), 0.15);
 }
 
 @media (max-width: 768px) {

@@ -1,6 +1,7 @@
 import { localePath, type Locale } from './i18n/config'
 import { absoluteUrl } from './seo'
 import { siteConfig } from './site'
+import { buildOrganizationJsonLd, buildWebSiteJsonLd } from './site-schema'
 
 export function buildPartnersJsonLd(locale: Locale) {
   const path = localePath('/partneram', locale)
@@ -9,6 +10,8 @@ export function buildPartnersJsonLd(locale: Locale) {
   return {
     '@context': 'https://schema.org',
     '@graph': [
+      buildOrganizationJsonLd(),
+      buildWebSiteJsonLd(),
       {
         '@type': 'WebPage',
         '@id': `${url}#webpage`,
@@ -19,7 +22,7 @@ export function buildPartnersJsonLd(locale: Locale) {
         about: { '@id': `${url}#partner-service` },
         primaryImageOfPage: {
           '@type': 'ImageObject',
-          url: absoluteUrl(siteConfig.ogImage),
+          url: absoluteUrl(siteConfig.ogImagePartners),
         },
         inLanguage: locale,
         breadcrumb: { '@id': `${url}#breadcrumb` },

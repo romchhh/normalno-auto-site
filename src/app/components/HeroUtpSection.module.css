@@ -15,7 +15,7 @@
   overflow: hidden;
   background: var(--white);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(249, 115, 22, 0.18);
+  border: 1px solid rgba(var(--brand-orange-rgb), 0.18);
   box-shadow: var(--shadow-xl), 0 0 0 1px rgba(10, 37, 64, 0.04);
   padding: clamp(28px, 3.5vw, 40px) clamp(28px, 4vw, 48px);
   display: flex;
@@ -27,7 +27,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 80% at 100% 0%, rgba(249, 115, 22, 0.06) 0%, transparent 55%);
+  background: radial-gradient(ellipse 70% 80% at 100% 0%, rgba(var(--brand-orange-rgb), 0.06) 0%, transparent 55%);
   pointer-events: none;
 }
 
@@ -58,7 +58,7 @@
   padding: 18px 20px;
   background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(var(--brand-orange-rgb), 0.12);
 }
 
 .highlightValue {

@@ -19,8 +19,8 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 55% at 50% 20%, rgba(249, 115, 22, 0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 80% 85%, rgba(249, 115, 22, 0.04) 0%, transparent 65%);
+    radial-gradient(ellipse 80% 55% at 50% 20%, rgba(var(--brand-orange-rgb), 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 85%, rgba(var(--brand-orange-rgb), 0.04) 0%, transparent 65%);
   pointer-events: none;
 }
 
@@ -73,7 +73,7 @@
   background: linear-gradient(
     160deg,
     var(--stripe-blue) 0%,
-    rgba(249, 115, 22, 0.18) 100%
+    rgba(var(--brand-orange-rgb), 0.18) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;

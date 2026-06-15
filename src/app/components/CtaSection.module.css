@@ -74,7 +74,7 @@
 
 .actionBtn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(249, 115, 22, 0.4);
+  box-shadow: 0 16px 48px rgba(var(--brand-orange-rgb), 0.4);
 }
 
 .decor {
@@ -91,7 +91,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 18px;
-  border: 1px solid rgba(249, 115, 22, 0.12);
+  border: 1px solid rgba(var(--brand-orange-rgb), 0.12);
   overflow: hidden;
   text-decoration: none;
   color: inherit;
@@ -106,7 +106,7 @@
 
 .decorTile:hover .decorArrow {
   transform: rotate(45deg) scale(1.05);
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
+  box-shadow: 0 6px 20px rgba(var(--brand-orange-rgb), 0.45);
 }
 
 .decorTileActive {

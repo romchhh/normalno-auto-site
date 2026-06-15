@@ -4,6 +4,7 @@ import PrivacyPage from '../components/PrivacyPage'
 import Footer from '../components/Footer'
 import JsonLdScript from '../components/seo/JsonLdScript'
 import { buildBreadcrumbJsonLd, buildGraphJsonLd, buildPageMetadata, buildWebPageJsonLd } from '@/lib/seo'
+import { buildOrganizationJsonLd, buildWebSiteJsonLd } from '@/lib/site-schema'
 import { siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -30,11 +31,19 @@ export default function Privacy() {
     description: siteConfig.pages.privacy.description,
     path: '/privacy',
     locale: 'uk',
+    dateModified: siteConfig.pages.privacy.dateModified,
   })
 
   return (
     <>
-      <JsonLdScript data={buildGraphJsonLd([breadcrumb, webPage])} />
+      <JsonLdScript
+        data={buildGraphJsonLd([
+          buildOrganizationJsonLd(),
+          buildWebSiteJsonLd(),
+          breadcrumb,
+          webPage,
+        ])}
+      />
       <Navbar />
       <main>
         <PrivacyPage />

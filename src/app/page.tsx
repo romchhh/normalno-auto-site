@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <>
       <JsonLdScript data={buildHomeJsonLd('uk')} />
-      <Navbar transparent />
+      <Navbar />
       <main>
         <Hero />
         <HeroUtpSection />

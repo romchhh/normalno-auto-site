@@ -67,7 +67,7 @@ export default function CtaSection() {
                 <div className={styles.decorImageWrap}>
                   <Image
                     src={item.image}
-                    alt=""
+                    alt={item.title}
                     fill
                     sizes="(max-width: 900px) 30vw, 160px"
                     className={styles.decorImage}

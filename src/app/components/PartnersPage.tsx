@@ -99,7 +99,7 @@ export default function PartnersPage() {
             <div className={styles.heroImageWrap}>
               <Image
                 src="/images/autos/car-in-use.webp"
-                alt=""
+                alt={t('partners.heroImageAlt')}
                 fill
                 sizes="(max-width: 900px) 80vw, 360px"
                 className={styles.heroImage}
@@ -156,7 +156,7 @@ export default function PartnersPage() {
               <p className={styles.ctaDescription}>{t('partners.ctaDescription')}</p>
               <div className={styles.ctaActions}>
                 <a
-                  href={siteConfig.telegramBotUrl}
+                  href={siteConfig.telegramPartnersUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.ctaPrimary}

@@ -71,12 +71,6 @@
   max-width: 900px;
 }
 
-.stripe {
-  font-style: normal;
-  color: #fdba74;
-  text-shadow: 0 0 40px var(--stripe-blue-glow);
-}
-
 .lead {
   font-size: clamp(17px, 2vw, 22px);
   font-weight: 600;
@@ -152,7 +146,7 @@
 
 .card:hover .cardArrow {
   transform: rotate(45deg) scale(1.05);
-  box-shadow: 0 8px 32px rgba(249, 115, 22, 0.5);
+  box-shadow: 0 8px 32px rgba(var(--brand-orange-rgb), 0.5);
 }
 
 @media (max-width: 768px) {

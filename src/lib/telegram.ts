@@ -20,20 +20,20 @@ function getTelegramConfig() {
 
 function formatLeadMessage({ name, phone, comment, source }: LeadPayload): string {
   const sourceLabel =
-    source === 'modal' ? 'Модальное окно' : 'Форма на странице'
+    source === 'modal' ? 'Модальне вікно' : 'Форма на сайті'
 
   const lines = [
-    '🆕 Новая заявка с сайта WayOfProcessing',
+    '🆕 Нова заявка з сайту Нормально авто',
     '',
-    `👤 Имя: ${name}`,
+    `👤 Ім'я: ${name}`,
     `📞 Контакт: ${phone}`,
   ]
 
   if (comment?.trim()) {
-    lines.push(`💬 Комментарий: ${comment.trim()}`)
+    lines.push(`💬 Коментар: ${comment.trim()}`)
   }
 
-  lines.push(`📍 Источник: ${sourceLabel}`)
+  lines.push(`📍 Джерело: ${sourceLabel}`)
 
   return lines.join('\n')
 }
