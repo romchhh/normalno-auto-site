@@ -149,6 +149,16 @@
   box-shadow: 0 8px 32px rgba(var(--brand-orange-rgb), 0.5);
 }
 
+@media (max-width: 1024px) {
+  .body {
+    padding: 108px var(--hero-header-padding-x) 80px;
+  }
+
+  .headline {
+    font-size: clamp(38px, 5.2vw, 60px);
+  }
+}
+
 @media (max-width: 768px) {
   .bgImage {
     object-position: right center;

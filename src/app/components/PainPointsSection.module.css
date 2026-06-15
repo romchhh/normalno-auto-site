@@ -103,6 +103,12 @@
   border: 1px solid rgba(var(--brand-orange-rgb), 0.15);
 }
 
+@media (max-width: 1024px) {
+  .section {
+    padding: calc(var(--section-padding-y) + 20px) var(--page-padding-x);
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: calc(var(--section-padding-y-md) + 20px) var(--page-padding-x-md);

@@ -190,6 +190,8 @@
   flex-direction: column;
   align-items: center;
   padding: 24px var(--page-padding-x-md) 40px;
+  overflow-x: clip;
+  overflow-y: auto;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s;
@@ -233,10 +235,12 @@
 
 .drawerNav a {
   font-family: var(--font-sans);
-  font-size: 36px;
+  font-size: clamp(28px, 6vw, 42px);
   font-weight: 800;
   color: var(--gray-900);
   text-decoration: none;
+  text-align: center;
+  max-width: 100%;
   transition: color 0.2s;
 }
 
@@ -277,31 +281,34 @@
   flex-shrink: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .navShell {
-    padding: 12px var(--page-padding-x-md) 0;
+    padding: 14px var(--page-padding-x) 0;
   }
 
   .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 28px;
-    padding: 16px 22px;
-    gap: 12px;
+    padding: 18px 28px;
+    gap: 16px;
+    border-radius: 32px;
   }
 
   .brand {
     flex-shrink: 1;
     min-width: 0;
+    justify-self: unset;
   }
 
   .logo {
-    height: 40px;
-    max-width: min(180px, 46vw);
+    height: 44px;
+    max-width: min(200px, 40vw);
   }
 
-  .center {
+  .center,
+  .ctaDesktop,
+  .actions > .telegramBtn {
     display: none;
   }
 
@@ -309,21 +316,18 @@
     flex-shrink: 0;
     gap: 0;
     margin-left: auto;
-  }
-
-  .telegramBtn,
-  .ctaDesktop {
-    display: none;
+    justify-self: unset;
   }
 
   .mobileRight {
     display: flex;
+    gap: 12px;
   }
 
   .telegramBtnMobile {
     display: flex;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
   }
 
   .telegramBtnMobile svg {
@@ -333,6 +337,36 @@
 
   .hamburger {
     display: flex;
+  }
+
+  .drawer {
+    padding: 28px var(--page-padding-x) 48px;
+  }
+
+  .drawerHeader {
+    max-width: min(560px, 100%);
+  }
+}
+
+@media (max-width: 768px) {
+  .navShell {
+    padding: 12px var(--page-padding-x-md) 0;
+  }
+
+  .nav {
+    border-radius: 28px;
+    padding: 16px 22px;
+    gap: 12px;
+  }
+
+  .logo {
+    height: 40px;
+    max-width: min(180px, 46vw);
+  }
+
+  .telegramBtnMobile {
+    width: 42px;
+    height: 42px;
   }
 }
 

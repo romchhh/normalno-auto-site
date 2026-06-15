@@ -76,6 +76,27 @@
   line-height: 1.4;
 }
 
+@media (max-width: 1024px) {
+  .section {
+    margin-top: clamp(-40px, -4vw, -24px);
+  }
+
+  .highlights {
+    gap: 12px;
+  }
+
+  .highlight {
+    padding: 14px 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .highlights {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     margin-top: 20px;

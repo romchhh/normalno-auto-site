@@ -101,6 +101,7 @@
   color: var(--gray-900);
   text-decoration: none;
   transition: color 0.2s;
+  overflow-wrap: anywhere;
 }
 
 .socialLink:hover {
@@ -137,6 +138,17 @@
   font-size: var(--text-xl);
   color: var(--gray-500);
   line-height: var(--leading-body);
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .card {
+    padding: 32px;
+  }
 }
 
 @media (max-width: 900px) {

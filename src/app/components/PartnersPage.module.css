@@ -1,5 +1,5 @@
 .main {
-  padding-top: 80px;
+  padding-top: 96px;
 }
 
 .inner {
@@ -358,7 +358,7 @@
   justify-content: center;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .heroInner {
     grid-template-columns: 1fr;
     gap: 36px;
@@ -366,10 +366,7 @@
 
   .heroVisual {
     order: -1;
-  }
-
-  .heroVisual {
-    max-width: 480px;
+    max-width: 520px;
     margin: 0 auto;
   }
 
@@ -378,7 +375,13 @@
   }
 
   .ctaCard {
-    padding: 36px 32px;
+    padding: 40px 36px;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroVisual {
+    max-width: 480px;
   }
 }
 

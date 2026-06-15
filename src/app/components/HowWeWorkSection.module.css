@@ -4,6 +4,7 @@
 
 .section {
   position: relative;
+  overflow-x: clip;
   background: linear-gradient(
     180deg,
     var(--white) 0%,
@@ -151,6 +152,17 @@
   font-size: var(--text-lg);
   line-height: var(--leading-body);
   color: var(--gray-500);
+}
+
+@media (max-width: 1024px) {
+  .contentTrack {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+  }
+
+  .heading {
+    margin-bottom: 44px;
+  }
 }
 
 @media (max-width: 900px) {

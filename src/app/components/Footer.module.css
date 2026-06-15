@@ -113,6 +113,7 @@
   cursor: pointer;
   text-align: left;
   transition: color 0.2s;
+  overflow-wrap: anywhere;
 }
 
 .contactLink:hover {
@@ -184,6 +185,16 @@
 
   .colAbout {
     grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 28px var(--page-padding-x) 0;
+  }
+
+  .grid {
+    gap: 32px 28px;
   }
 }
 

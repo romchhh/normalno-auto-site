@@ -140,6 +140,18 @@
   max-width: 720px;
 }
 
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 28px;
+  }
+
+  .card,
+  .cardFeatured {
+    padding: 24px 26px;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
     padding: var(--section-padding-y-md) var(--page-padding-x-md);
