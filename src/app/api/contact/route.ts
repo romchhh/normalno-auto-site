@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { isBitrixConfigured, sendLeadToBitrix } from '@/lib/bitrix'
 import { isTelegramConfigured, sendLeadToTelegram } from '@/lib/telegram'
 
 const MAX_NAME = 120
@@ -18,7 +19,7 @@ function trimField(value: unknown, max: number): string {
 }
 
 export async function POST(request: Request) {
-  if (!isTelegramConfigured()) {
+  if (!isBitrixConfigured() && !isTelegramConfigured()) {
     return NextResponse.json({ error: 'Service unavailable' }, { status: 503 })
   }
 
@@ -39,10 +40,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Name and phone are required' }, { status: 400 })
   }
 
-  const sent = await sendLeadToTelegram({ name, phone, comment, source })
+  const payload = { name, phone, comment, source }
 
-  if (!sent) {
-    return NextResponse.json({ error: 'Failed to send' }, { status: 502 })
+  if (isBitrixConfigured()) {
+    const created = await sendLeadToBitrix(payload)
+    if (!created) {
+      return NextResponse.json({ error: 'Failed to send' }, { status: 502 })
+    }
+  }
+
+  if (isTelegramConfigured()) {
+    await sendLeadToTelegram(payload)
   }
 
   return NextResponse.json({ ok: true })
