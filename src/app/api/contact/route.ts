@@ -34,7 +34,7 @@ export async function POST(request: Request) {
   const name = trimField(body.name, MAX_NAME)
   const phone = trimField(body.phone, MAX_PHONE)
   const comment = trimField(body.comment, MAX_COMMENT)
-  const source = body.source === 'modal' ? 'modal' : 'section'
+  const source: 'section' | 'modal' = body.source === 'modal' ? 'modal' : 'section'
 
   if (!name || !phone) {
     return NextResponse.json({ error: 'Name and phone are required' }, { status: 400 })
