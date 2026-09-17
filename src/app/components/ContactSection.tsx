@@ -40,6 +40,12 @@ const SOCIAL_LINKS = [
     iconClass: styles.socialIconTelegram,
   },
   {
+    key: 'telegramCatalog' as const,
+    href: siteConfig.telegramCatalogUrl,
+    icon: TelegramIcon,
+    iconClass: styles.socialIconTelegram,
+  },
+  {
     key: 'telegramChannel' as const,
     href: siteConfig.telegramChannelUrl,
     icon: TelegramIcon,

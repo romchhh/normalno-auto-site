@@ -43,6 +43,14 @@ export default function CtaSection() {
                 {t('cta.primary')}
               </a>
               <a
+                href={siteConfig.telegramCatalogUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.actionBtn}
+              >
+                {t('cta.catalog')}
+              </a>
+              <a
                 href={siteConfig.telegramChannelUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -57,12 +65,12 @@ export default function CtaSection() {
             {CAR_CARDS.map((item) => (
               <a
                 key={item.title}
-                href={siteConfig.telegramBotUrl}
+                href={siteConfig.telegramCatalogUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${styles.decorTile} ${'active' in item && item.active ? styles.decorTileActive : ''}`}
                 style={{ backgroundColor: item.bg }}
-                aria-label={`${item.title} — розрахувати в Telegram`}
+                aria-label={`${item.title} — каталог у Telegram`}
               >
                 <div className={styles.decorImageWrap}>
                   <Image

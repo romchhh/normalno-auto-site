@@ -4,7 +4,7 @@
 
 ## Summary
 
-Нормально авто — ліцензована фінансова компанія в Києві. Програма для власників авто 2007–2015 року: трейд-ін, лізинг на авто $15 000–25 000, платіж 400–600$/міс, вихід через 3 роки.
+Нормально авто — ліцензована фінансова компанія в Києві. Програма для власників авто 2007–2015 року: справедливий лізинг (з трейд-іном або без обміну), авто $15 000–25 000, платіж 400–600$/міс, вихід через 3 роки.
 
 ## Site map
 
@@ -24,11 +24,14 @@ Ukrainian only (uk-UA)
 ## Primary CTA
 
 Розрахувати оновлення авто: https://t.me/NormalnoAutoBot
+Каталог авто: https://t.me/NormalnoCatalaogBot
 
 ## Contact & Social
 
+- Phone: +380733113830
 - Telegram bot: https://t.me/NormalnoAutoBot
-- Telegram channel: https://t.me/normalno_ua1
+- Catalog bot: https://t.me/NormalnoCatalaogBot
+- Telegram channel: https://t.me/+HsMlSniKGi5iZjli
 - Instagram: https://www.instagram.com/normalno.in.ua/
 - TikTok: https://www.tiktok.com/@normalno.in.ua
 - Email: info@normalno-auto.com

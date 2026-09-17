@@ -29,6 +29,12 @@ export default function Footer() {
       iconClass: styles.contactIconTelegram,
     },
     {
+      key: 'telegramCatalog' as const,
+      href: siteConfig.telegramCatalogUrl,
+      icon: <TelegramIcon size={20} />,
+      iconClass: styles.contactIconTelegram,
+    },
+    {
       key: 'telegramChannel' as const,
       href: siteConfig.telegramChannelUrl,
       icon: <TelegramIcon size={20} />,
@@ -62,7 +68,6 @@ export default function Footer() {
             <SiteLogo />
           </a>
           <p className={styles.copyright}>{t('footer.copyright', { year })}</p>
-          <p className={styles.legal}>{t('footer.legal')}</p>
         </div>
 
         <div className={styles.col}>
