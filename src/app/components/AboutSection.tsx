@@ -45,9 +45,7 @@ export default function AboutSection() {
               {siteConfig.address.formatted}
             </a>
             <a
-              href={siteConfig.telegramBotUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#calculator"
               className={contentStyles.ctaPrimary}
             >
               {t('about.cta')}

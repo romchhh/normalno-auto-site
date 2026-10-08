@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import HeroUtpSection from './components/HeroUtpSection'
+import CalculatorSection from './components/CalculatorSection'
 import PainPointsSection from './components/PainPointsSection'
 import HowWeWorkSection from './components/HowWeWorkSection'
 import ComfortablePaymentSection from './components/ComfortablePaymentSection'
@@ -40,6 +41,8 @@ export default function Home() {
       <main>
         <Hero />
         <HeroUtpSection />
+        <ScrollReveal><CalculatorSection /></ScrollReveal>
+        <SectionBlurDivider />
         <ScrollReveal><PainPointsSection /></ScrollReveal>
         <SectionBlurDivider />
         <ScrollReveal delay={80}><HowWeWorkSection /></ScrollReveal>

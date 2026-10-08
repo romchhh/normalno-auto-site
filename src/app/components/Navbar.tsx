@@ -55,9 +55,7 @@ export default function Navbar() {
             </a>
 
             <a
-              href={siteConfig.telegramBotUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={hash('calculator')}
               className={`${styles.cta} ${styles.ctaDesktop}`}
             >
               {t('nav.cta')}
@@ -70,9 +68,7 @@ export default function Navbar() {
 
             <div className={styles.mobileRight}>
               <a
-                href={siteConfig.telegramBotUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={hash('calculator')}
                 className={`${styles.telegramBtn} ${styles.telegramBtnMobile}`}
                 aria-label={t('nav.cta')}
               >
@@ -111,9 +107,7 @@ export default function Navbar() {
         </nav>
 
         <a
-          href={siteConfig.telegramBotUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={hash('calculator')}
           className={styles.drawerCta}
           onClick={() => setMenuOpen(false)}
         >

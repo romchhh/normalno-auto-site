@@ -35,9 +35,7 @@ export default function CtaSection() {
 
             <div className={styles.actions}>
               <a
-                href={siteConfig.telegramBotUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#calculator"
                 className={styles.actionBtn}
               >
                 {t('cta.primary')}
