@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { formatUAH, formatUahShort, formatUsd } from '@/lib/currency'
+import { trackLeadConversion } from '@/lib/gtm'
 import {
   CALCULATOR_CONFIG,
   getModelSuggestions,
@@ -147,6 +148,7 @@ export default function CalculatorSection() {
         body: JSON.stringify({ name, phone, state }),
       })
       if (!res.ok) throw new Error('submit failed')
+      trackLeadConversion('calculator')
       setStatus('success')
     } catch {
       setStatus('error')

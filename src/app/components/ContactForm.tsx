@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { trackLeadConversion } from '@/lib/gtm'
 import styles from './ContactForm.module.css'
 
 type FormState = { name: string; phone: string; comment: string; consent: boolean }
@@ -36,6 +37,7 @@ export default function ContactForm({ modal = false, onSuccess }: { modal?: bool
 
       if (!res.ok) throw new Error('submit failed')
 
+      trackLeadConversion(modal ? 'modal' : 'contact')
       setStatus('success')
       onSuccess?.()
     } catch {
